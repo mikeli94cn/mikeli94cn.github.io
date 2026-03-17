@@ -1,4 +1,3 @@
-## how-to-install-software-in-linux
+## how to install software in linux
 ### apt
-
 ### yum
