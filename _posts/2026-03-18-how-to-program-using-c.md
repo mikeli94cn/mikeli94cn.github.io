@@ -1,4 +1,4 @@
-## how to program in c
+## how to program using c
 ### c
 ### c++
 ### java
