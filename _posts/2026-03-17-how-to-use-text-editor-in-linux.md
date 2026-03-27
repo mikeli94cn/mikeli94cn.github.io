@@ -73,6 +73,66 @@ vim
 | 4    | Restart Vim                       |
 
 ---
+### how to remove vundle
+To remove **Vundle** from Ubuntu (or any Linux), you just need to clean up your Vim config and delete its files.
+
+---
+
+✅ Step 1: Remove Vundle from `.vimrc`
+
+Open your config:
+
+```bash
+vim ~/.vimrc
+```
+
+Delete or comment out these lines:
+
+```vim
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Plugin lines...
+
+call vundle#end()
+filetype plugin indent on
+```
+
+👉 Also remove any `Plugin '...'` lines
+
+---
+
+✅ Step 2: Delete Vundle directory
+
+```bash
+rm -rf ~/.vim/bundle/Vundle.vim
+```
+
+---
+
+✅ Step 3: Remove all Vundle-installed plugins (optional)
+
+If you want a clean slate:
+
+```bash
+rm -rf ~/.vim/bundle
+```
+
+---
+
+
+
+👍 Quick Summary
+
+| Step | Action                     |
+| ---- | -------------------------- |
+| 1    | Edit `.vimrc`              |
+| 2    | Delete `Vundle.vim` folder |
+| 3    | Remove plugins (optional)  |
+| 4    | Restart Vim                |
+
+---
+
 
 
 ## emacs
