@@ -132,7 +132,16 @@ rm -rf ~/.vim/bundle
 | 4    | Restart Vim                |
 
 ---
+## how to install coc-nvim
+" Better completion behavior
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ "\<TAB>"
 
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Use Enter to confirm completion
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 
 ## emacs
