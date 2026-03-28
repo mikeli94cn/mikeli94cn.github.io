@@ -133,6 +133,63 @@ rm -rf ~/.vim/bundle
 
 ---
 ## how to install coc-nvim
+To install **coc.nvim** (Conquer of Completion) in Vim, follow these steps carefully. It provides modern IDE-like features such as auto-completion, linting, and language support.
+
+---
+
+ ✅ Step 0: Install Node.js (required ⚠️)
+
+`coc.nvim` depends on Node.js.
+
+```bash
+sudo apt update
+sudo apt install nodejs npm
+```
+
+Check:
+
+```bash
+node -v
+npm -v
+```
+
+---
+
+ ✅ Step 1: Install via vim-plug (recommended)
+
+If you’re using **vim-plug**, open your config:
+
+```bash
+vim ~/.vimrc
+```
+
+Add:
+
+```vim
+call plug#begin('~/.vim/plugged')
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+```
+
+---
+
+ ✅ Step 2: Install the plugin
+
+Open Vim and run:
+
+```vim
+:PlugInstall
+```
+
+---
+
+ ✅ Step 3: Basic configuration (important)
+
+Add this to your `.vimrc`:
+
+```vim
 " Better completion behavior
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -142,6 +199,59 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Use Enter to confirm completion
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+```
+
+---
+
+ ✅ Step 4: Install language extensions
+
+Inside Vim:
+
+```vim
+:CocInstall coc-json coc-tsserver coc-clangd coc-pyright
+```
+
+👉 Examples:
+
+* `coc-clangd` → C/C++
+* `coc-pyright` → Python
+* `coc-tsserver` → JavaScript/TypeScript
+
+---
+
+ ✅ Step 5: Verify installation
+
+Open a code file and:
+
+* Start typing → auto-completion should appear
+* Run:
+
+```vim
+:CocInfo
+```
+
+---
+
+ ✅ Optional: Useful commands
+
+| Command               | Description        |
+| --------------------- | ------------------ |
+| `:CocInstall`         | install extensions |
+| `:CocUpdate`          | update coc.nvim    |
+| `:CocList extensions` | list installed     |
+| `gd`                  | go to definition   |
+| `K`                   | show documentation |
+
+---
+
+
+ 👍 Summary
+
+1. Install Node.js
+2. Add plugin via vim-plug
+3. Run `:PlugInstall`
+4. Install extensions
+5. Enjoy IDE features 🎉
 
 
 ## emacs
