@@ -1,5 +1,9 @@
 # how to use text editor in linux
 ## vim
+### how to copy from vim to linux clipboard
+
+### how to paste from linux clipboard to vim
+
 ### remove YouCompleteMe
 To remove **YouCompleteMe** from your Vim setup, the steps depend on how you installed it (most likely via **vim-plug** or **Vundle**).
 
@@ -132,6 +136,10 @@ rm -rf ~/.vim/bundle
 | 4    | Restart Vim                |
 
 ---
+
+### how to install vim-plug
+
+
 ## how to install coc-nvim
 To install **coc.nvim** (Conquer of Completion) in Vim, follow these steps carefully. It provides modern IDE-like features such as auto-completion, linting, and language support.
 
@@ -253,6 +261,11 @@ Open a code file and:
 4. Install extensions
 5. Enjoy IDE features 🎉
 
+### how to configure coc-nvim for java
+
+
+
+### how to configure coc-nvim for c/c++
 
 ## emacs
 
