@@ -256,8 +256,3 @@ Open a code file and:
 
 ## emacs
 
-{
-  "java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
-  "java.format.settings.url": "",
-  "java.configuration.checkProjectSettingsExclusions": false
-}
