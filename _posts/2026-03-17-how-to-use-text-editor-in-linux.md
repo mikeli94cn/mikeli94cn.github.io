@@ -267,6 +267,30 @@ Open a code file and:
 
 ### how to configure coc-nvim for c/c++
 
+### how to use fzf.vim
+
+### vim text manipulate stratey
+vim select lines match patterns
+
+Vim doesn't have a single command to "highlight" non-contiguous lines in Visual mode, but you can "select" them for an operation: 
+
+Delete all lines matching "pattern":
+
+:g/pattern/d
+
+Keep only lines matching "pattern" (delete everything else):
+
+:v/pattern/d or :g!/pattern/d
+
+
+pattern match date time
+
+This is the most common format for logs and databases. 
+
+Standard (grep -E): [0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}
+
+Vim (Search): /\d\{4}-\d\{2}-\d\{2} \d\{2}:\d\{2}:\d\{2}
+
 ## emacs
 
 ## miscellecious
