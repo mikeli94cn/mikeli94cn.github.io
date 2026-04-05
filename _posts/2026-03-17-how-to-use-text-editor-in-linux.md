@@ -261,6 +261,112 @@ Open a code file and:
 4. Install extensions
 5. Enjoy IDE features 🎉
 
+## coc-nvim gd and return
+
+In coc.nvim, you already know:
+
+* `gd` → **go to definition**
+
+Now the natural question is: **how do you go back?** 👇
+
+---
+
+ 🔙 Return after `gd`
+
+ ✅ 1. Use `Ctrl + o` (most important)
+
+```vim
+Ctrl + o
+```
+
+👉 This jumps **back to your previous location**
+
+* Works after `gd`, `gi`, search, etc.
+* Think: **“jump back in history”**
+
+---
+
+ 🔜 2. Go forward again
+
+```vim
+Ctrl + i
+```
+
+👉 Moves forward (like browser forward button)
+
+---
+
+ 🧠 Why this works
+
+Vim keeps a **jump list**:
+
+* `gd` adds a jump
+* `Ctrl + o` → go backward in jumps
+* `Ctrl + i` → go forward
+
+---
+
+ 📍 Example workflow
+
+1. Cursor on function:
+
+```c
+add(2, 3);
+```
+
+2. Press:
+
+```vim
+gd
+```
+
+👉 jumps to definition
+
+3. Press:
+
+```vim
+Ctrl + o
+```
+
+👉 returns to where you were
+
+---
+
+ 🔍 Bonus: see jump history
+
+```vim
+:jumps
+```
+
+---
+
+ ⚡ Pro tips
+
+ Open definition in split instead
+
+```vim
+Ctrl + w + }
+```
+
+ Or tab (with mapping):
+
+```vim
+nnoremap gD :tab split \| call CocAction('jumpDefinition')<CR>
+```
+
+---
+
+ 🔑 Summary
+
+* `gd` → go to definition
+* `Ctrl + o` → go back
+* `Ctrl + i` → go forward
+
+---
+
+
+
+
 ### how to configure coc-nvim for java
 
 
