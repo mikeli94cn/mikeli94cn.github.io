@@ -9,7 +9,7 @@ To remove **YouCompleteMe** from your Vim setup, the steps depend on how you ins
 
 ---
 
- ✅ Step 1: Remove from `.vimrc`
+  Step 1: Remove from `.vimrc`
 
 Open your config:
 
@@ -27,7 +27,7 @@ Plugin 'ycm-core/YouCompleteMe'
 
 ---
 
- ✅ Step 2: Remove plugin files
+  Step 2: Remove plugin files
 
 
  If using Vundle:
@@ -38,7 +38,7 @@ rm -rf ~/.vim/bundle/YouCompleteMe
 
 ---
 
- ✅ Step 3: Remove compiled files (important ⚠️)
+  Step 3: Remove compiled files (important )
 
 YouCompleteMe installs compiled binaries. Clean them:
 
@@ -48,7 +48,7 @@ rm -rf ~/.vim/bundle/YouCompleteMe
 
 ---
 
- ✅ Step 4: Optional cleanup (recommended)
+  Step 4: Optional cleanup (recommended)
 
 Remove extra config (if you added any):
 
@@ -59,7 +59,7 @@ let g:ycm_*
 
 ---
 
- ✅ Step 5: Restart Vim
+  Step 5: Restart Vim
 
 ```bash
 vim
@@ -67,7 +67,7 @@ vim
 
 ---
 
- 👍 Quick Summary
+  Quick Summary
 
 | Step | Action                            |
 | ---- | --------------------------------- |
@@ -82,7 +82,7 @@ To remove **Vundle** from Ubuntu (or any Linux), you just need to clean up your 
 
 ---
 
-✅ Step 1: Remove Vundle from `.vimrc`
+ Step 1: Remove Vundle from `.vimrc`
 
 Open your config:
 
@@ -102,11 +102,11 @@ call vundle#end()
 filetype plugin indent on
 ```
 
-👉 Also remove any `Plugin '...'` lines
+ Also remove any `Plugin '...'` lines
 
 ---
 
-✅ Step 2: Delete Vundle directory
+ Step 2: Delete Vundle directory
 
 ```bash
 rm -rf ~/.vim/bundle/Vundle.vim
@@ -114,7 +114,7 @@ rm -rf ~/.vim/bundle/Vundle.vim
 
 ---
 
-✅ Step 3: Remove all Vundle-installed plugins (optional)
+ Step 3: Remove all Vundle-installed plugins (optional)
 
 If you want a clean slate:
 
@@ -126,7 +126,7 @@ rm -rf ~/.vim/bundle
 
 
 
-👍 Quick Summary
+ Quick Summary
 
 | Step | Action                     |
 | ---- | -------------------------- |
@@ -145,7 +145,7 @@ To install **coc.nvim** (Conquer of Completion) in Vim, follow these steps caref
 
 ---
 
- ✅ Step 0: Install Node.js (required ⚠️)
+  Step 0: Install Node.js (required )
 
 `coc.nvim` depends on Node.js.
 
@@ -163,9 +163,9 @@ npm -v
 
 ---
 
- ✅ Step 1: Install via vim-plug (recommended)
+  Step 1: Install via vim-plug (recommended)
 
-If you’re using **vim-plug**, open your config:
+If youre using **vim-plug**, open your config:
 
 ```bash
 vim ~/.vimrc
@@ -183,7 +183,7 @@ call plug#end()
 
 ---
 
- ✅ Step 2: Install the plugin
+  Step 2: Install the plugin
 
 Open Vim and run:
 
@@ -193,7 +193,7 @@ Open Vim and run:
 
 ---
 
- ✅ Step 3: Basic configuration (important)
+  Step 3: Basic configuration (important)
 
 Add this to your `.vimrc`:
 
@@ -211,7 +211,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 ---
 
- ✅ Step 4: Install language extensions
+  Step 4: Install language extensions
 
 Inside Vim:
 
@@ -219,19 +219,19 @@ Inside Vim:
 :CocInstall coc-json coc-tsserver coc-clangd coc-pyright
 ```
 
-👉 Examples:
+ Examples:
 
-* `coc-clangd` → C/C++
-* `coc-pyright` → Python
-* `coc-tsserver` → JavaScript/TypeScript
+* `coc-clangd`  C/C++
+* `coc-pyright`  Python
+* `coc-tsserver`  JavaScript/TypeScript
 
 ---
 
- ✅ Step 5: Verify installation
+  Step 5: Verify installation
 
 Open a code file and:
 
-* Start typing → auto-completion should appear
+* Start typing  auto-completion should appear
 * Run:
 
 ```vim
@@ -240,7 +240,7 @@ Open a code file and:
 
 ---
 
- ✅ Optional: Useful commands
+  Optional: Useful commands
 
 | Command               | Description        |
 | --------------------- | ------------------ |
@@ -253,60 +253,60 @@ Open a code file and:
 ---
 
 
- 👍 Summary
+  Summary
 
 1. Install Node.js
 2. Add plugin via vim-plug
 3. Run `:PlugInstall`
 4. Install extensions
-5. Enjoy IDE features 🎉
+5. Enjoy IDE features 
 
 ## coc-nvim gd and return
 
 In coc.nvim, you already know:
 
-* `gd` → **go to definition**
+* `gd`  **go to definition**
 
-Now the natural question is: **how do you go back?** 👇
+Now the natural question is: **how do you go back?** 
 
 ---
 
- 🔙 Return after `gd`
+  Return after `gd`
 
- ✅ 1. Use `Ctrl + o` (most important)
+  1. Use `Ctrl + o` (most important)
 
 ```vim
 Ctrl + o
 ```
 
-👉 This jumps **back to your previous location**
+ This jumps **back to your previous location**
 
 * Works after `gd`, `gi`, search, etc.
-* Think: **“jump back in history”**
+* Think: **jump back in history**
 
 ---
 
- 🔜 2. Go forward again
+  2. Go forward again
 
 ```vim
 Ctrl + i
 ```
 
-👉 Moves forward (like browser forward button)
+ Moves forward (like browser forward button)
 
 ---
 
- 🧠 Why this works
+  Why this works
 
 Vim keeps a **jump list**:
 
 * `gd` adds a jump
-* `Ctrl + o` → go backward in jumps
-* `Ctrl + i` → go forward
+* `Ctrl + o`  go backward in jumps
+* `Ctrl + i`  go forward
 
 ---
 
- 📍 Example workflow
+  Example workflow
 
 1. Cursor on function:
 
@@ -320,7 +320,7 @@ add(2, 3);
 gd
 ```
 
-👉 jumps to definition
+ jumps to definition
 
 3. Press:
 
@@ -328,11 +328,11 @@ gd
 Ctrl + o
 ```
 
-👉 returns to where you were
+ returns to where you were
 
 ---
 
- 🔍 Bonus: see jump history
+  Bonus: see jump history
 
 ```vim
 :jumps
@@ -340,7 +340,7 @@ Ctrl + o
 
 ---
 
- ⚡ Pro tips
+  Pro tips
 
  Open definition in split instead
 
@@ -356,11 +356,11 @@ nnoremap gD :tab split \| call CocAction('jumpDefinition')<CR>
 
 ---
 
- 🔑 Summary
+  Summary
 
-* `gd` → go to definition
-* `Ctrl + o` → go back
-* `Ctrl + i` → go forward
+* `gd`  go to definition
+* `Ctrl + o`  go back
+* `Ctrl + i`  go forward
 
 ---
 
