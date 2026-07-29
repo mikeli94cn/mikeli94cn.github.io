@@ -1,5 +1,7 @@
 # ​What Did GUI Bring To Computer Programming
-A **Graphical User Interface (GUI)** is a visual computer interface that allows users to interact with electronic devices using graphical elements like windows, icons, menus, and pointers (WIMP) instead of typing text commands. [[1](https://www.coursera.org/articles/gui), [2](https://fluentcart.com/blog/what-is-gui/), [3](https://herovired.com/learning-hub/topics/difference-between-gui-and-cui), [4](https://www.sciencedirect.com/topics/engineering/graphical-user-interface), [5](https://embacy.io/stories/brief-history-of-interfaces-from-abacuses-to-cyberpunk)]
+Q: please introduce what is GUI, please introduce the history of GUI, why GUI is so popular, and what is the relationship between GUI and computer programming, what GUI brings to computer programming?
+
+A: A **Graphical User Interface (GUI)** is a visual computer interface that allows users to interact with electronic devices using graphical elements like windows, icons, menus, and pointers (WIMP) instead of typing text commands. [[1](https://www.coursera.org/articles/gui), [2](https://fluentcart.com/blog/what-is-gui/), [3](https://herovired.com/learning-hub/topics/difference-between-gui-and-cui), [4](https://www.sciencedirect.com/topics/engineering/graphical-user-interface), [5](https://embacy.io/stories/brief-history-of-interfaces-from-abacuses-to-cyberpunk)]
 
 Here is a comprehensive breakdown of its history, popularity, and deep relationship with computer programming.
 
