@@ -1,3 +1,7 @@
+# What Did GUI Bring To Computer Programming 2
+Q: please introduce what is GUI, please introduce the history of GUI, why GUI is so popular, and what is the relationship between GUI and computer programming, what GUI brings to computer programming?
+
+A:
 ![Image](https://images.openai.com/static-rsc-4/CqRQrea8OvqlpMwBDGBHkQ7b9o24wW1f-j1ISAWY2VT_ULAbpeWmQxvcrZQfQuyxpIGpeLGNzoGUTMjdql3hRuACHj57lQveawkfdXHsOhkn1-Oy7xhwh5zI26LczpadI6xYRzJ7gslpCZlGUwaiYvuBPiai0pgzcC8mCJNWEd3CNu-9iIX-Yr7f9OBRryKr?purpose=fullsize)
 
 ![Image](https://images.openai.com/static-rsc-4/65EF6zFIetsbsoDZIJnTIk6W_4pTG3XOhosuInlxuhEkKPXZOJ50gVNK_jZtk4UF22aBbFKTUvXVfn69IoD-OyetnsS1DyL1BtjpS1KJKIpgx-Dq9N_atjRCoqza-hYKXFXAEQt4_Jzr3fJsfIGAJ15HYKUQldZV6t6YnNrC-G43g9jDTAKm9tScbfuRvhOz?purpose=fullsize)
