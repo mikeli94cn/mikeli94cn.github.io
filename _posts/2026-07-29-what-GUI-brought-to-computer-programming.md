@@ -1,4 +1,4 @@
-# What Did GUI Bring To Computer Programming 2
+# What Did GUI Bring To Computer Programming
 Q: please introduce what is GUI, please introduce the history of GUI, why GUI is so popular, and what is the relationship between GUI and computer programming, what GUI brings to computer programming?
 
 A:
@@ -736,9 +736,6 @@ Java
     v
 Modern frameworks
 ```
-
-
-
 
 
 
