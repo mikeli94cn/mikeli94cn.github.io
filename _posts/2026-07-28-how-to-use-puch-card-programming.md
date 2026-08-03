@@ -1,4 +1,3 @@
-![Image]{https://intelcorp.scene7.com/is/image/intelcorp/homepage-badge-arc-g-graphics-glow-1080x1080?ts=1779919203615&dpr=off)
 ![Image](https://images.openai.com/static-rsc-4/yrR00xyqwPNeG51CAcPr7KXNz-10hmnDbqIAKxzEBpyVKHjSG5iqscdXf-3FBXdUatZ2Kyvplz6U9wxkPPCIKWOTcM3C8ZHdnGuAVdfAxBvSDMYQX1ia9JHoHmEdOl_XJsJHuFbr8e_i7J9o5dkzBUbBPVPn7K_4Ok8WF6ZzEabIGs3T_zosHbVGKgPVC5dF?purpose=fullsize)
 
 ![Image](https://images.openai.com/static-rsc-4/URKWHYKdjbjK54u3E5lZ9E_Z0AviaaAiPgqNdPBblFBKMaDvj2ePdC8mszfmF6qigeojsZ1hQg_t0ADjElPoDVTkGPoi6TVXogl7-tsaJhkFskf0-8SZXtIbrH34xmFS8mWWGX4ZpTUBnTqmQMthrme9PvcJB8O1d6qKiQl0lZkSEwV0bhkRatdNXiEwcmwl?purpose=fullsize)
