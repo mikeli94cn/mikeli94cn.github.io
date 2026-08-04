@@ -1,4 +1,5 @@
 with chatgpt
+
 ---
 
 Q: I have a feeling that OOP is grow with GUI (graphics user interface), because only the complexity of GUI programming can fully use the power of OOP paradigm. if only system programming, c has proved structure programming can complete the tasks very well, so i think the complexity of GUI is the important reason for OOP development. do you agree me ? or do you have a better opinion?
