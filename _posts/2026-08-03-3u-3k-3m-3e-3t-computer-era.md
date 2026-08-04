@@ -342,8 +342,6 @@ Display:
 CPU:
     1 MIPS
 
-Cost:
-    about 1 megapenny ($10,000)
 ```
 
 ([Wikipedia][1])
