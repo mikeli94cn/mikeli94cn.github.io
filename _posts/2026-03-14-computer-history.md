@@ -1,4 +1,4 @@
-**Computer combined with hardware,software,network,data**
+Computer combined with hardware,software,network,data
 
 *Every generation combined with hardware, software at least. Network can add into additionally. Data is same.*
 1. Zero generation : ENIAC(Hardware)
