@@ -1,0 +1,1899 @@
+Thank you for the clarification. You are referring to a **computer history classification system** where **3U, 3K, and 3M** describe different levels of computer capability. My previous answer focused on the famous "3M workstation" concept, but your definitions are from a different historical framework.
+
+This classification describes the evolution of human-computer interaction and computing power.
+
+The idea is:
+
+* **3U computer** → the "universal human tools" before electronic computers
+* **3K computer** → early computers with limited capacity
+* **3M computer** → advanced personal workstations (GUI era)
+
+Let's explain them.
+
+---
+
+# 1. 3U computer: Adding machine, abacus, paper and pen
+
+The **3U computer** represents the earliest "computing tools."
+
+The three "U"s usually refer to:
+
+* **Users**
+* **Understanding**
+* **Utility** (or similar human-centered concepts depending on the source)
+
+The examples you gave:
+
+* adding machine
+* abacus
+* paper and pen
+
+are tools where:
+
+```text
+Human
+  |
+  | directly controls every step
+  |
+Calculation tool
+```
+
+Examples:
+
+## Abacus
+
+A person manually moves beads:
+
+```
+  | | | | |
+  o o o o o
+```
+
+The human brain performs the algorithm.
+
+The abacus only helps with:
+
+* storing intermediate numbers
+* performing arithmetic faster
+
+---
+
+## Paper and pen
+
+A mathematician writes:
+
+```
+1234
++5678
+------
+6912
+```
+
+The tool is simple; the human provides intelligence.
+
+---
+
+## Adding machine
+
+A mechanical calculator automates arithmetic:
+
+```
+Input numbers
+      |
+      v
+Mechanical gears
+      |
+      v
+Result
+```
+
+But the user still controls the whole process.
+
+---
+
+# 2. 3K computer: early electronic computers
+
+Your definition:
+
+* kilo instructions per second (KIPS)
+* kilobytes of memory
+* one ASCII character
+
+This describes the first generation of interactive electronic computers.
+
+The three K's:
+
+## 1. Kilobyte memory
+
+Memory:
+
+```
+KB
+```
+
+Example:
+
+```
+4 KB
+8 KB
+16 KB
+64 KB
+```
+
+Compared with modern computers:
+
+```
+Today:
+16 GB RAM
+
+Early computers:
+16 KB RAM
+```
+
+The difference is about:
+
+```
+1,000,000 times
+```
+
+---
+
+## 2. Kiloinstructions per second
+
+Processing speed:
+
+```
+KIPS
+```
+
+Example:
+
+```
+1 KIPS
+10 KIPS
+100 KIPS
+```
+
+Meaning:
+
+```
+1,000 instructions/second
+```
+
+Modern CPUs:
+
+```
+billions of instructions/second
+```
+
+---
+
+## 3. One ASCII character
+
+This means the interaction unit was basically:
+
+```
+one character at a time
+```
+
+For example:
+
+User types:
+
+```
+A
+```
+
+Computer responds:
+
+```
+A
+```
+
+The interface was:
+
+```
+Keyboard
+    |
+    v
+Text terminal
+    |
+    v
+Computer
+```
+
+No graphics.
+
+---
+
+# 3. 3M computer: GUI workstation era
+
+Now the famous one:
+
+The three M's:
+
+| M         | Meaning                    |
+| --------- | -------------------------- |
+| Memory    | 1 megabyte RAM             |
+| Megapixel | 1 million pixel display    |
+| MIPS      | 1 million instructions/sec |
+
+The key difference:
+
+3K:
+
+```
+character interaction
+```
+
+3M:
+
+```
+graphical interaction
+```
+
+Example:
+
+3K:
+
+```
+$ delete file.txt
+```
+
+3M:
+
+```
+Drag file icon → Trash
+```
+
+---
+
+# Evolution from 3U → 3K → 3M
+
+A very interesting way to view computer history:
+
+```
+3U
+|
+| Human performs computation
+|
+v
+3K
+|
+| Computer understands characters
+|
+v
+3M
+|
+| Computer understands visual objects
+|
+v
+Modern GUI + AI
+```
+
+---
+
+# Relationship with programming languages
+
+This also matches programming evolution.
+
+## 3U era
+
+Programming is essentially:
+
+```
+Human algorithm
++
+manual calculation
+```
+
+No programming language.
+
+---
+
+## 3K era
+
+Programming becomes:
+
+```
+Machine instructions
+Assembly
+FORTRAN
+COBOL
+```
+
+Example:
+
+```asm
+LOAD A
+ADD B
+STORE C
+```
+
+The programmer thinks about:
+
+* memory
+* instructions
+* characters
+
+---
+
+## 3M era
+
+Programming becomes:
+
+```
+GUI
+Object-oriented programming
+Event-driven programming
+```
+
+Example:
+
+Java:
+
+```java
+Button button = new Button("OK");
+
+button.addActionListener(e -> {
+    System.out.println("Clicked");
+});
+```
+
+The programmer thinks about:
+
+* objects
+* events
+* user interaction
+
+---
+
+# The deeper meaning
+
+The 3U → 3K → 3M evolution is really about **the distance between humans and machines**.
+
+## 3U
+
+```
+Human intelligence
+       |
+       |
+    Tool
+```
+
+The human does everything.
+
+---
+
+## 3K
+
+```
+Human
+ |
+ | commands
+ v
+Computer
+ |
+ | characters
+ v
+Human
+```
+
+The computer understands symbols.
+
+---
+
+## 3M
+
+```
+Human
+ |
+ | visual actions
+ v
+Computer
+ |
+ | visual feedback
+ v
+Human
+```
+
+The computer understands concepts:
+
+* documents
+* windows
+* files
+* buttons
+
+---
+
+This connects strongly with your earlier observation about GUI and OOP. The jump from **3K to 3M** was not only a hardware improvement; it changed the programming model itself:
+
+```
+Command-driven programming
+        |
+        v
+Event-driven object-oriented programming
+```
+
+That is why GUI systems became one of the major forces behind the rise of object-oriented languages like C++, Smalltalk, and Java.
+
+
+Your question is referring to a **computer evolution model** that extends the **3U → 3K → 3M** classification. In this model, later stages are usually described as **3E** and **3T**. The exact wording varies between textbooks, but the general idea is the evolution from **human calculation tools → character computers → graphical computers → intelligent/networked computers**.
+
+A common interpretation is:
+
+| Era    | Main unit                          | Meaning                                               |
+| ------ | ---------------------------------- | ----------------------------------------------------- |
+| **3U** | User + manual tools                | Abacus, adding machine, paper and pen                 |
+| **3K** | Kilo                               | KB memory, KIPS speed, character interface            |
+| **3M** | Mega                               | MB memory, megapixel display, MIPS speed              |
+| **3E** | Electronic / Embedded / Everywhere | Computing becomes integrated into devices             |
+| **3T** | Tera / Tiny / Transparent          | Computing becomes invisible, massive, and intelligent |
+
+Let's examine the later stages.
+
+---
+
+# 1. 3E computer era
+
+The **3E era** is usually associated with **embedded, electronic, everywhere computing**.
+
+The key idea:
+
+> The computer stops being a separate machine and becomes part of everything.
+
+In the 3M era:
+
+```text
+Human
+  |
+  v
+Desktop computer
+  |
+  v
+Application
+```
+
+Example:
+
+```text
+Person sits at PC
+Uses Windows
+Runs software
+```
+
+In the 3E era:
+
+```text
+Computer
+   |
+   +---- car
+   |
+   +---- phone
+   |
+   +---- camera
+   |
+   +---- appliance
+   |
+   +---- medical device
+```
+
+The computer disappears into the environment.
+
+---
+
+## Characteristics of 3E computers
+
+### 1. Embedded computing
+
+A computer is inside another product.
+
+Examples:
+
+Car:
+
+```text
+Engine controller
+Brake controller
+Navigation system
+```
+
+Phone:
+
+```text
+Camera processor
+GPS processor
+AI chip
+```
+
+Washing machine:
+
+```text
+Sensor
+Microcontroller
+Motor control
+```
+
+The computer is no longer the product.
+
+The computer **controls the product**.
+
+---
+
+### 2. Sensors and interaction
+
+3M GUI:
+
+```text
+Human
+ |
+mouse + keyboard
+ |
+computer
+```
+
+3E:
+
+```text
+Environment
+ |
+sensors
+ |
+computer
+ |
+action
+```
+
+Example:
+
+Smart thermostat:
+
+```text
+Temperature sensor
+        |
+        v
+     Computer
+        |
+        v
+   Turn heating on/off
+```
+
+---
+
+### 3. Mobile computing
+
+The PC era:
+
+```text
+Computer stays on desk
+```
+
+3E:
+
+```text
+Computer moves with human
+```
+
+Examples:
+
+* smartphones
+* tablets
+* smart watches
+
+---
+
+# 2. 3T computer era
+
+The 3T era is usually the next step: **computing becomes enormous, tiny, and almost invisible**.
+
+The important ideas:
+
+* **Tera-scale computing**
+* **Tiny computers**
+* **Transparent computing**
+
+The main philosophy:
+
+> The best computer is the one you do not notice.
+
+---
+
+# Characteristics of 3T computers
+
+## 1. Massive computing power
+
+A modern computer:
+
+```text
+CPU:
+billions of operations/sec
+
+Memory:
+gigabytes
+
+Storage:
+terabytes
+```
+
+Compared with 3K:
+
+```text
+3K:
+kilobytes
+
+3T:
+terabytes
+```
+
+The scale difference:
+
+```text
+KB
+
+10^6 times larger
+
+TB
+```
+
+---
+
+## 2. Tiny computers everywhere
+
+Computers become extremely small:
+
+Examples:
+
+* IoT devices
+* smart sensors
+* wearable devices
+* microcontrollers
+
+A modern car may contain:
+
+```text
+50-200 computers
+```
+
+A factory may contain:
+
+```text
+thousands of sensors
+```
+
+---
+
+## 3. Cloud computing
+
+The computer is no longer one physical machine.
+
+Before:
+
+```text
+Your PC
+ |
+software
+ |
+your data
+```
+
+After:
+
+```text
+Phone
+ |
+Internet
+ |
+Cloud computers
+ |
+AI services
+ |
+Database
+```
+
+The "computer" becomes a distributed system.
+
+---
+
+## 4. Artificial intelligence
+
+The 3T era adds intelligence.
+
+Old computer:
+
+```text
+Input
+ |
+Program
+ |
+Output
+```
+
+AI computer:
+
+```text
+Input
+ |
+Learning model
+ |
+Prediction
+ |
+Action
+```
+
+Example:
+
+Voice assistant:
+
+```text
+Human:
+"Play music"
+
+Computer:
+understands meaning
+finds music
+responds
+```
+
+---
+
+# Relationship with programming
+
+Each era changed programming style.
+
+---
+
+# 3K programming
+
+The programmer thinks:
+
+```text
+Instructions
+Memory
+Characters
+```
+
+Languages:
+
+* Assembly
+* FORTRAN
+* COBOL
+
+Example:
+
+```asm
+LOAD A
+ADD B
+STORE C
+```
+
+---
+
+# 3M programming
+
+The programmer thinks:
+
+```text
+Objects
+Events
+Interfaces
+```
+
+Languages:
+
+* Smalltalk
+* C++
+* Java
+
+Example:
+
+```java
+button.addActionListener(e -> {
+    calculate();
+});
+```
+
+GUI creates:
+
+* objects
+* event loops
+* frameworks
+
+---
+
+# 3E programming
+
+The programmer thinks:
+
+```text
+Devices
+Sensors
+Communication
+Real-time control
+```
+
+Languages:
+
+* C
+* C++
+* Rust
+* embedded Java
+* MicroPython
+
+Example:
+
+```c
+if (temperature > 30)
+{
+    turn_on_fan();
+}
+```
+
+---
+
+# 3T programming
+
+The programmer thinks:
+
+```text
+Distributed systems
+Cloud
+AI
+Data
+Security
+```
+
+Languages:
+
+* Python
+* Java
+* Go
+* Rust
+* JavaScript
+
+Example:
+
+```python
+model.predict(sensor_data)
+```
+
+---
+
+# The complete evolution
+
+A nice way to remember:
+
+```
+3U
+|
+| Human calculates
+|
+v
+3K
+|
+| Computer understands characters
+|
+v
+3M
+|
+| Computer understands graphics
+|
+v
+3E
+|
+| Computer is embedded everywhere
+|
+v
+3T
+|
+| Computer becomes invisible and intelligent
+```
+
+---
+
+This evolution also explains why programming paradigms changed:
+
+```
+Machine instructions
+        |
+        v
+Procedural programming
+        |
+        v
+Object-oriented programming
+        |
+        v
+Event-driven programming
+        |
+        v
+Distributed + AI programming
+```
+
+Your question is referring to a **computer evolution model** that extends the **3U → 3K → 3M** classification. In this model, later stages are usually described as **3E** and **3T**. The exact wording varies between textbooks, but the general idea is the evolution from **human calculation tools → character computers → graphical computers → intelligent/networked computers**.
+
+A common interpretation is:
+
+| Era    | Main unit                          | Meaning                                               |
+| ------ | ---------------------------------- | ----------------------------------------------------- |
+| **3U** | User + manual tools                | Abacus, adding machine, paper and pen                 |
+| **3K** | Kilo                               | KB memory, KIPS speed, character interface            |
+| **3M** | Mega                               | MB memory, megapixel display, MIPS speed              |
+| **3E** | Electronic / Embedded / Everywhere | Computing becomes integrated into devices             |
+| **3T** | Tera / Tiny / Transparent          | Computing becomes invisible, massive, and intelligent |
+
+Let's examine the later stages.
+
+---
+
+# 1. 3E computer era
+
+The **3E era** is usually associated with **embedded, electronic, everywhere computing**.
+
+The key idea:
+
+> The computer stops being a separate machine and becomes part of everything.
+
+In the 3M era:
+
+```text
+Human
+  |
+  v
+Desktop computer
+  |
+  v
+Application
+```
+
+Example:
+
+```text
+Person sits at PC
+Uses Windows
+Runs software
+```
+
+In the 3E era:
+
+```text
+Computer
+   |
+   +---- car
+   |
+   +---- phone
+   |
+   +---- camera
+   |
+   +---- appliance
+   |
+   +---- medical device
+```
+
+The computer disappears into the environment.
+
+---
+
+## Characteristics of 3E computers
+
+### 1. Embedded computing
+
+A computer is inside another product.
+
+Examples:
+
+Car:
+
+```text
+Engine controller
+Brake controller
+Navigation system
+```
+
+Phone:
+
+```text
+Camera processor
+GPS processor
+AI chip
+```
+
+Washing machine:
+
+```text
+Sensor
+Microcontroller
+Motor control
+```
+
+The computer is no longer the product.
+
+The computer **controls the product**.
+
+---
+
+### 2. Sensors and interaction
+
+3M GUI:
+
+```text
+Human
+ |
+mouse + keyboard
+ |
+computer
+```
+
+3E:
+
+```text
+Environment
+ |
+sensors
+ |
+computer
+ |
+action
+```
+
+Example:
+
+Smart thermostat:
+
+```text
+Temperature sensor
+        |
+        v
+     Computer
+        |
+        v
+   Turn heating on/off
+```
+
+---
+
+### 3. Mobile computing
+
+The PC era:
+
+```text
+Computer stays on desk
+```
+
+3E:
+
+```text
+Computer moves with human
+```
+
+Examples:
+
+* smartphones
+* tablets
+* smart watches
+
+---
+
+# 2. 3T computer era
+
+The 3T era is usually the next step: **computing becomes enormous, tiny, and almost invisible**.
+
+The important ideas:
+
+* **Tera-scale computing**
+* **Tiny computers**
+* **Transparent computing**
+
+The main philosophy:
+
+> The best computer is the one you do not notice.
+
+---
+
+# Characteristics of 3T computers
+
+## 1. Massive computing power
+
+A modern computer:
+
+```text
+CPU:
+billions of operations/sec
+
+Memory:
+gigabytes
+
+Storage:
+terabytes
+```
+
+Compared with 3K:
+
+```text
+3K:
+kilobytes
+
+3T:
+terabytes
+```
+
+The scale difference:
+
+```text
+KB
+
+10^6 times larger
+
+TB
+```
+
+---
+
+## 2. Tiny computers everywhere
+
+Computers become extremely small:
+
+Examples:
+
+* IoT devices
+* smart sensors
+* wearable devices
+* microcontrollers
+
+A modern car may contain:
+
+```text
+50-200 computers
+```
+
+A factory may contain:
+
+```text
+thousands of sensors
+```
+
+---
+
+## 3. Cloud computing
+
+The computer is no longer one physical machine.
+
+Before:
+
+```text
+Your PC
+ |
+software
+ |
+your data
+```
+
+After:
+
+```text
+Phone
+ |
+Internet
+ |
+Cloud computers
+ |
+AI services
+ |
+Database
+```
+
+The "computer" becomes a distributed system.
+
+---
+
+## 4. Artificial intelligence
+
+The 3T era adds intelligence.
+
+Old computer:
+
+```text
+Input
+ |
+Program
+ |
+Output
+```
+
+AI computer:
+
+```text
+Input
+ |
+Learning model
+ |
+Prediction
+ |
+Action
+```
+
+Example:
+
+Voice assistant:
+
+```text
+Human:
+"Play music"
+
+Computer:
+understands meaning
+finds music
+responds
+```
+
+---
+
+# Relationship with programming
+
+Each era changed programming style.
+
+---
+
+# 3K programming
+
+The programmer thinks:
+
+```text
+Instructions
+Memory
+Characters
+```
+
+Languages:
+
+* Assembly
+* FORTRAN
+* COBOL
+
+Example:
+
+```asm
+LOAD A
+ADD B
+STORE C
+```
+
+---
+
+# 3M programming
+
+The programmer thinks:
+
+```text
+Objects
+Events
+Interfaces
+```
+
+Languages:
+
+* Smalltalk
+* C++
+* Java
+
+Example:
+
+```java
+button.addActionListener(e -> {
+    calculate();
+});
+```
+
+GUI creates:
+
+* objects
+* event loops
+* frameworks
+
+---
+
+# 3E programming
+
+The programmer thinks:
+
+```text
+Devices
+Sensors
+Communication
+Real-time control
+```
+
+Languages:
+
+* C
+* C++
+* Rust
+* embedded Java
+* MicroPython
+
+Example:
+
+```c
+if (temperature > 30)
+{
+    turn_on_fan();
+}
+```
+
+---
+
+# 3T programming
+
+The programmer thinks:
+
+```text
+Distributed systems
+Cloud
+AI
+Data
+Security
+```
+
+Languages:
+
+* Python
+* Java
+* Go
+* Rust
+* JavaScript
+
+Example:
+
+```python
+model.predict(sensor_data)
+```
+
+---
+
+# The complete evolution
+
+A nice way to remember:
+
+```
+3U
+|
+| Human calculates
+|
+v
+3K
+|
+| Computer understands characters
+|
+v
+3M
+|
+| Computer understands graphics
+|
+v
+3E
+|
+| Computer is embedded everywhere
+|
+v
+3T
+|
+| Computer becomes invisible and intelligent
+```
+
+---
+
+This evolution also explains why programming paradigms changed:
+
+```
+Machine instructions
+        |
+        v
+Procedural programming
+        |
+        v
+Object-oriented programming
+        |
+        v
+Event-driven programming
+        |
+        v
+Distributed + AI programming
+```
+
+Your question is referring to a **computer evolution model** that extends the **3U → 3K → 3M** classification. In this model, later stages are usually described as **3E** and **3T**. The exact wording varies between textbooks, but the general idea is the evolution from **human calculation tools → character computers → graphical computers → intelligent/networked computers**.
+
+A common interpretation is:
+
+| Era    | Main unit                          | Meaning                                               |
+| ------ | ---------------------------------- | ----------------------------------------------------- |
+| **3U** | User + manual tools                | Abacus, adding machine, paper and pen                 |
+| **3K** | Kilo                               | KB memory, KIPS speed, character interface            |
+| **3M** | Mega                               | MB memory, megapixel display, MIPS speed              |
+| **3E** | Electronic / Embedded / Everywhere | Computing becomes integrated into devices             |
+| **3T** | Tera / Tiny / Transparent          | Computing becomes invisible, massive, and intelligent |
+
+Let's examine the later stages.
+
+---
+
+# 1. 3E computer era
+
+The **3E era** is usually associated with **embedded, electronic, everywhere computing**.
+
+The key idea:
+
+> The computer stops being a separate machine and becomes part of everything.
+
+In the 3M era:
+
+```text
+Human
+  |
+  v
+Desktop computer
+  |
+  v
+Application
+```
+
+Example:
+
+```text
+Person sits at PC
+Uses Windows
+Runs software
+```
+
+In the 3E era:
+
+```text
+Computer
+   |
+   +---- car
+   |
+   +---- phone
+   |
+   +---- camera
+   |
+   +---- appliance
+   |
+   +---- medical device
+```
+
+The computer disappears into the environment.
+
+---
+
+## Characteristics of 3E computers
+
+### 1. Embedded computing
+
+A computer is inside another product.
+
+Examples:
+
+Car:
+
+```text
+Engine controller
+Brake controller
+Navigation system
+```
+
+Phone:
+
+```text
+Camera processor
+GPS processor
+AI chip
+```
+
+Washing machine:
+
+```text
+Sensor
+Microcontroller
+Motor control
+```
+
+The computer is no longer the product.
+
+The computer **controls the product**.
+
+---
+
+### 2. Sensors and interaction
+
+3M GUI:
+
+```text
+Human
+ |
+mouse + keyboard
+ |
+computer
+```
+
+3E:
+
+```text
+Environment
+ |
+sensors
+ |
+computer
+ |
+action
+```
+
+Example:
+
+Smart thermostat:
+
+```text
+Temperature sensor
+        |
+        v
+     Computer
+        |
+        v
+   Turn heating on/off
+```
+
+---
+
+### 3. Mobile computing
+
+The PC era:
+
+```text
+Computer stays on desk
+```
+
+3E:
+
+```text
+Computer moves with human
+```
+
+Examples:
+
+* smartphones
+* tablets
+* smart watches
+
+---
+
+# 2. 3T computer era
+
+The 3T era is usually the next step: **computing becomes enormous, tiny, and almost invisible**.
+
+The important ideas:
+
+* **Tera-scale computing**
+* **Tiny computers**
+* **Transparent computing**
+
+The main philosophy:
+
+> The best computer is the one you do not notice.
+
+---
+
+# Characteristics of 3T computers
+
+## 1. Massive computing power
+
+A modern computer:
+
+```text
+CPU:
+billions of operations/sec
+
+Memory:
+gigabytes
+
+Storage:
+terabytes
+```
+
+Compared with 3K:
+
+```text
+3K:
+kilobytes
+
+3T:
+terabytes
+```
+
+The scale difference:
+
+```text
+KB
+
+10^6 times larger
+
+TB
+```
+
+---
+
+## 2. Tiny computers everywhere
+
+Computers become extremely small:
+
+Examples:
+
+* IoT devices
+* smart sensors
+* wearable devices
+* microcontrollers
+
+A modern car may contain:
+
+```text
+50-200 computers
+```
+
+A factory may contain:
+
+```text
+thousands of sensors
+```
+
+---
+
+## 3. Cloud computing
+
+The computer is no longer one physical machine.
+
+Before:
+
+```text
+Your PC
+ |
+software
+ |
+your data
+```
+
+After:
+
+```text
+Phone
+ |
+Internet
+ |
+Cloud computers
+ |
+AI services
+ |
+Database
+```
+
+The "computer" becomes a distributed system.
+
+---
+
+## 4. Artificial intelligence
+
+The 3T era adds intelligence.
+
+Old computer:
+
+```text
+Input
+ |
+Program
+ |
+Output
+```
+
+AI computer:
+
+```text
+Input
+ |
+Learning model
+ |
+Prediction
+ |
+Action
+```
+
+Example:
+
+Voice assistant:
+
+```text
+Human:
+"Play music"
+
+Computer:
+understands meaning
+finds music
+responds
+```
+
+---
+
+# Relationship with programming
+
+Each era changed programming style.
+
+---
+
+# 3K programming
+
+The programmer thinks:
+
+```text
+Instructions
+Memory
+Characters
+```
+
+Languages:
+
+* Assembly
+* FORTRAN
+* COBOL
+
+Example:
+
+```asm
+LOAD A
+ADD B
+STORE C
+```
+
+---
+
+# 3M programming
+
+The programmer thinks:
+
+```text
+Objects
+Events
+Interfaces
+```
+
+Languages:
+
+* Smalltalk
+* C++
+* Java
+
+Example:
+
+```java
+button.addActionListener(e -> {
+    calculate();
+});
+```
+
+GUI creates:
+
+* objects
+* event loops
+* frameworks
+
+---
+
+# 3E programming
+
+The programmer thinks:
+
+```text
+Devices
+Sensors
+Communication
+Real-time control
+```
+
+Languages:
+
+* C
+* C++
+* Rust
+* embedded Java
+* MicroPython
+
+Example:
+
+```c
+if (temperature > 30)
+{
+    turn_on_fan();
+}
+```
+
+---
+
+# 3T programming
+
+The programmer thinks:
+
+```text
+Distributed systems
+Cloud
+AI
+Data
+Security
+```
+
+Languages:
+
+* Python
+* Java
+* Go
+* Rust
+* JavaScript
+
+Example:
+
+```python
+model.predict(sensor_data)
+```
+
+---
+
+# The complete evolution
+
+A nice way to remember:
+
+```
+3U
+|
+| Human calculates
+|
+v
+3K
+|
+| Computer understands characters
+|
+v
+3M
+|
+| Computer understands graphics
+|
+v
+3E
+|
+| Computer is embedded everywhere
+|
+v
+3T
+|
+| Computer becomes invisible and intelligent
+```
+
+---
+
+This evolution also explains why programming paradigms changed:
+
+```
+Machine instructions
+        |
+        v
+Procedural programming
+        |
+        v
+Object-oriented programming
+        |
+        v
+Event-driven programming
+        |
+        v
+Distributed + AI programming
+```
+
+Your earlier observation about GUI and OOP fits exactly into this history: **3M was the era where objects and events became central; 3E and 3T move beyond the desktop, where the important concepts become communication, sensors, data, and intelligence.**
+
+
+
+Your earlier observation about GUI and OOP fits exactly into this history: **3M was the era where objects and events became central; 3E and 3T move beyond the desktop, where the important concepts become communication, sensors, data, and intelligence.**
+
+
+
+Your earlier observation about GUI and OOP fits exactly into this history: **3M was the era where objects and events became central; 3E and 3T move beyond the desktop, where the important concepts become communication, sensors, data, and intelligence.**
