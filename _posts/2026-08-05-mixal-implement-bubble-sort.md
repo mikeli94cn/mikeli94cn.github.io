@@ -1,4 +1,4 @@
-[gordon bell]https://computerhistory.org/blog/in-memoriam-gordon-bell-1934-2024/
+[gordon bell](https://computerhistory.org/blog/in-memoriam-gordon-bell-1934-2024/)
 
 Implementing **bubble sort in MIXAL** is a very good exercise because it forces you to think like an early computer programmer:
 
