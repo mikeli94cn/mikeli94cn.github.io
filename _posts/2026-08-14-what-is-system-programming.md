@@ -81,7 +81,7 @@ System programming is guided by four main foundational concepts: [6]
 ------------------------------
 ## Understanding the Key Trade-off
 System programming is built entirely around a major technical trade-off: Control vs. Convenience. [12, 13] 
-
+```
    [ HIGH-LEVEL APPS ]  <- More Convenience (Auto memory cleanup, slow)
           │
           ▼
@@ -89,7 +89,7 @@ System programming is built entirely around a major technical trade-off: Control
           │
           ▼
    [ HARDWARE CHIPS ]   <- Raw Control (1s and 0s, complex)
-
+```
 In standard application development, the programming language handles the hard work in the background. For example, it automatically cleans up memory. This is highly convenient, but it slows the computer down. [14, 15, 16] 
 
 In system programming, the programmer takes full responsibility. You must manually tell the computer exactly when to claim a piece of RAM and exactly when to let it go. This lack of convenience gives the programmer total control, leading to maximum speed. [17, 18, 19, 20] 
@@ -171,7 +171,8 @@ The only way to truly learn is by building. Tackle these projects in order of di
 [Level 4: Expert]     --> Build a tiny Operating System that boots on a simulator.
 
 ------------------------------
-## Recommended Learning Resources## 📚 Classic Books
+## Recommended Learning Resources
+## 📚 Classic Books
 
 * "The C Programming Language" by Kernighan and Ritchie (The C bible).
 * "Computer Systems: A Programmer's Perspective" (CS:APP) (The best book for bridging hardware and software).
