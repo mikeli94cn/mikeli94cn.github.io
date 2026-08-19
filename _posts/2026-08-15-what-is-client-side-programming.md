@@ -1,3 +1,4 @@
+with google ai
 # what is client-side programming?
 Client-side programming is code that runs directly on the user's computer or phone instead of a far-away computer called a server. Also known as front-end development, it builds the part of a website or app that people can see, touch, and interact with using their web browser. [1, 2, 3, 4] 
 ## The Core Building Blocks
