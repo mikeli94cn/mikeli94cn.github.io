@@ -1,3 +1,4 @@
+with google ai
 # what is server-side programming?
 Server-side programming (also called back-end programming) is the code that runs on a hidden computer network, called a server, instead of your personal device. When you click a button on a app or website, your phone or computer sends a digital message over the internet to this server. The server-side code processes your message, grabs information from a database, and sends the answer back to your screen. [1, 2, 3, 4] 
 
