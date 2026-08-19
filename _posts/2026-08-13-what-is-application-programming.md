@@ -13,6 +13,7 @@ Think of an API like a waiter at a restaurant: [8]
 * The Waiter (The API): Takes your order, walks to the kitchen, tells them what you want, and brings the food back to you. [8, 9, 10, 11, 12] 
 
 Without the waiter, you would have to go into the kitchen and cook it yourself. [8] 
+
 ------------------------------
 ## 🔎 Real-World Examples
 You use application programming and APIs every single day without knowing it: [13, 14, 15] 
@@ -87,6 +88,7 @@ Think about driving a car:
 * The Abstraction: You only have a steering wheel, a gas pedal, and a brake pedal. [6, 7, 8, 9, 10] 
 
 You do not need to know how an internal combustion engine works to drive to the store. You just push the gas pedal. In application programming, code creates that "gas pedal" for software. [11, 12] 
+
 ------------------------------
 ## 🏗️ The Four Core Pillars
 To make abstraction work, application programming relies on four main ideas: [13, 14] 
@@ -99,7 +101,9 @@ To make abstraction work, application programming relies on four main ideas: [13
 ------------------------------
 ## 🌟 Why This Principle Matters
 Without abstraction, coding a simple smartphone game would take decades. Developers would have to write custom code to tell the phone's screen pixels how to light up, how to spin the phone's internal storage disc, and how to catch internet signals.
+
 By hiding those layers of technology, developers can focus entirely on making the actual app fun, helpful, and easy to use for humans. [27, 28, 29] 
+
 ------------------------------
 If you want to see this principle in action, let me know if you would like to see a simple code comparison showing abstract code versus complex code, or if you want to explore the tools developers use to manage this complexity.
 
