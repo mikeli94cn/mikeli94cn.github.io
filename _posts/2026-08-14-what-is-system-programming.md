@@ -1,3 +1,4 @@
+with google ai
 # what is system programming?
 System programming means writing software that helps the computer hardware talk to other programs. Instead of building apps that humans interact with directly (like mobile games or web browsers), system programmers build the underlying foundation that keeps the machine running smoothly. [1, 2, 3, 4] 
 
