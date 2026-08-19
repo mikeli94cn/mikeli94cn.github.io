@@ -1,3 +1,4 @@
+with google ai
 # what is application programming?
 Application programming is the process of writing code to create software apps that help people do specific tasks. This is different from system programming, which focuses on making the computer itself run. [1, 2, 3, 4, 5] 
 
