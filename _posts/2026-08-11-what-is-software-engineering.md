@@ -1,3 +1,4 @@
+with chatgpt
 # what is software engineering?
 Software engineering is the discipline of designing, building, testing, deploying, and maintaining software in a systematic and reliable way. It applies engineering principles to software development so that programs are efficient, secure, scalable, and easy to maintain.
 
