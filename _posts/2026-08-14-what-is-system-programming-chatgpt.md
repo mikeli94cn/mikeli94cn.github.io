@@ -691,7 +691,7 @@ That path gives you something more valuable than memorizing APIs:
 
 And that is probably the most important underlying principle of system programming: **understanding and controlling the boundary between software and the physical machine.**
 
-# how to learn system programming in a systematical order?
+# how to learn system programming systematically?
 Yes. And I would learn **application programming differently from system programming**.
 
 For system programming, the natural direction is:
