@@ -1,4 +1,5 @@
-# recursive version
+**recursive version**
+
 Merge sort is a classic **divide-and-conquer** sorting algorithm.
 
 The idea:
@@ -356,7 +357,7 @@ Machine instructions
 
 That is why implementing algorithms in both Java and MIXAL is a very good way to understand how high-level programming maps to the hardware.
 
-# iterative version
+**iterative version**
 
 An **iterative merge sort** (also called **bottom-up merge sort**) avoids recursion. Instead of dividing the array recursively, it starts by treating every element as a sorted subarray of size `1`, then repeatedly merges larger and larger sorted sections.
 
