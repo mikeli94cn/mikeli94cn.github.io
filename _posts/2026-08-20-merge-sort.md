@@ -199,7 +199,7 @@ one element = already sorted
 
 ---
 
-# 2. Merge phase
+## 2. Merge phase
 
 The important function:
 
