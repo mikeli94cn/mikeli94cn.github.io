@@ -692,1039 +692,1054 @@ That path gives you something more valuable than memorizing APIs:
 And that is probably the most important underlying principle of system programming: **understanding and controlling the boundary between software and the physical machine.**
 
 # how to learn system programming systematically?
-Yes. And I would learn **application programming differently from system programming**.
+Yes. If your goal is to **really understand system programming**, rather than just learn a collection of Linux APIs, I recommend learning it **bottom-up**.
 
-For system programming, the natural direction is:
+The key idea is:
 
-```text
-Hardware
-   ↓
-CPU / memory
-   ↓
-Assembly
-   ↓
-C
-   ↓
-Operating system
-   ↓
-System calls
-```
+> **Hardware → machine instructions → C → OS mechanisms → system calls → processes/threads → memory → filesystems → networking → OS internals**
 
-For application programming, the natural direction is:
+Since you've already been studying C, Java, computer organization, MIX/MIXAL, and the Internet, you're actually in a good position to follow this path.
+
+## 1. The overall roadmap
+
+I would organize system programming into **8 layers**:
 
 ```text
-Problem
-   ↓
-Data / domain model
-   ↓
-Algorithms
-   ↓
-Program structure
-   ↓
-User interface / API
-   ↓
-Database / network
-   ↓
-Complete application
+                    System Programming
+                           │
+        ┌──────────────────┴──────────────────┐
+        │                                     │
+   OS-level programming                 OS internals
+        │                                     │
+  ┌─────┼─────┬─────┬─────┐          ┌──────┼──────┐
+  ↓     ↓     ↓     ↓     ↓          ↓      ↓      ↓
+Files Processes Memory IPC Signals  Scheduler VM  Filesystem
+  │     │     │     │     │
+  └─────┴─────┴─────┴─────┘
+                 │
+             System Calls
+                 │
+                 ↓
+                  C
+                 │
+                 ↓
+          Assembly / CPU
+                 │
+                 ↓
+       Computer Organization
+                 │
+                 ↓
+              Hardware
 ```
 
-Since you've already been studying **Java, C, algorithms, OOP, networking, and system programming**, I would recommend using **Java as your main application-programming language** while continuing to use C for system programming.
-
-# 1. The complete roadmap
-
-I would organize application programming into **9 stages**:
-
-```text
-                Application Programming
-                         │
-                         ↓
-                 1. Programming
-                         │
-                         ↓
-                 2. Data + Algorithms
-                         │
-                         ↓
-                 3. OOP + Design
-                         │
-                         ↓
-                 4. Application Architecture
-                         │
-              ┌──────────┴──────────┐
-              ↓                     ↓
-          5. GUI/Web            6. Database
-              │                     │
-              └──────────┬──────────┘
-                         ↓
-                  7. Networking/API
-                         ↓
-                  8. Testing/Debugging
-                         ↓
-                  9. Complete Systems
-```
-
-The important thing is **not to rush into frameworks**.
-
-First learn how to construct programs; then learn frameworks that help you construct larger programs.
+Don't try to learn everything simultaneously.
 
 ---
 
-# 2. Stage 1 — Become fluent in one programming language
+# 2. Stage 1 — Master C
 
-For you, I would use **Java**.
+Before going deeply into system programming, become comfortable with C.
 
-You should be comfortable with:
+You don't need every obscure feature of C, but you should be very comfortable with:
 
-```text
-Variables
-Types
-Control flow
-Functions/methods
-Arrays
-Strings
-Exceptions
-Generics
-Collections
-File I/O
+### Basic C
+
+```c
+int
+char
+struct
+enum
+union
+typedef
 ```
 
-Then move into Java's object model:
+Control structures:
 
-```text
-class
-object
-interface
-inheritance
-composition
-encapsulation
-polymorphism
+```c
+if
+for
+while
+switch
 ```
 
-You should be able to write programs without constantly looking up basic syntax.
+Functions:
 
-For example, you should be able to comfortably build:
-
-```text
-Student Management System
-Library Management System
-Bank Account System
-Contact Manager
+```c
+function()
+function parameters
+return values
+function pointers
 ```
 
-without using a framework.
+### Most importantly: pointers
 
-That is your first milestone.
+You should be able to understand:
+
+```c
+int x = 10;
+int *p = &x;
+
+*p = 20;
+```
+
+and visualize:
+
+```text
+        memory
+
+0x1000 ──→ 10
+
+p
+│
+└────────→ 0x1000
+```
+
+Then progress to:
+
+```c
+int **p;
+char *str;
+struct Node *node;
+```
+
+and:
+
+```c
+int arr[10];
+int *p = arr;
+```
 
 ---
 
-# 3. Stage 2 — Learn data structures and algorithms
+# 3. Stage 2 — Learn memory at the machine level
 
-Application programming is not just about syntax.
+This is where system programming starts becoming interesting.
 
-You need to know how to represent and manipulate information.
+Don't just learn:
 
-Learn:
+```c
+malloc()
+free()
+```
+
+Understand **what they actually mean**.
+
+Study:
 
 ```text
-Array
-Linked List
 Stack
-Queue
-Hash Table
-Tree
 Heap
-Graph
+Data segment
+Text segment
+Virtual memory
+Physical memory
+Address
+Pointer
+Memory layout
 ```
 
-And algorithms:
+For example, understand this program:
+
+```c
+int global = 10;
+
+int main(void)
+{
+    int local = 20;
+    int *p = malloc(sizeof(int));
+
+    *p = 30;
+
+    free(p);
+}
+```
+
+Conceptually:
 
 ```text
-Searching
-Sorting
-Recursion
-Dynamic programming
-Graph traversal
-Greedy algorithms
+Process virtual address space
+
++----------------+
+|     Stack      |
+|      local     |
++----------------+
+|                |
+|                |
++----------------+
+|      Heap      |
+|      *p        |
++----------------+
+|      Data      |
+|     global     |
++----------------+
+|      Code      |
+|     main()     |
++----------------+
 ```
 
-You have already been working with things such as **bubble sort and merge sort**, so continue this work.
-
-But there's an important distinction:
-
-> **Algorithms teach you how to solve computational problems; application programming teaches you how to combine those solutions into a useful software system.**
-
-For example:
-
-```text
-merge sort
-```
-
-is an algorithm.
-
-But:
-
-```text
-contact manager
-    ↓
-load contacts
-    ↓
-validate input
-    ↓
-store contacts
-    ↓
-sort contacts
-    ↓
-search contacts
-    ↓
-display results
-```
-
-is application programming.
+This becomes extremely important later when you study processes and virtual memory.
 
 ---
 
-# 4. Stage 3 — Learn OOP as a design tool
-
-Don't learn OOP merely as:
-
-```text
-class
-extends
-implements
-```
-
-Learn to answer:
-
-> **How should I divide a large problem into cooperating objects?**
-
-For example, consider a library:
-
-```text
-Library
- ├── Book
- ├── Member
- ├── Loan
- └── Librarian
-```
-
-Then identify responsibilities:
-
-```text
-Book
- ├── title
- ├── author
- └── ISBN
-
-Member
- ├── name
- └── memberId
-
-Loan
- ├── book
- ├── member
- ├── borrowDate
- └── returnDate
-```
-
-Now the application becomes a collaboration of objects:
-
-```text
-Member
-   │
-   ↓ borrows
- Book
-   │
-   ↓
- Loan
-```
-
-This is much more important than memorizing inheritance syntax.
-
----
-
-# 5. Learn composition before inheritance
-
-This is especially important.
-
-Don't immediately think:
-
-```java
-class Dog extends Animal
-```
-
-Instead learn to design systems through composition:
-
-```text
-Order
- ├── Customer
- ├── List<OrderItem>
- └── Payment
-```
-
-This tends to scale better for application architecture.
-
-Learn:
-
-```text
-Composition
-Interfaces
-Dependency injection
-Encapsulation
-Separation of concerns
-```
-
-before becoming obsessed with inheritance hierarchies.
-
----
-
-# 6. Stage 4 — Learn application architecture
-
-This is where application programming becomes substantially different from solving programming exercises.
-
-A small program might be:
-
-```text
-main()
- ↓
-doSomething()
-```
-
-A larger application becomes:
-
-```text
-             Application
-                  │
-       ┌──────────┼──────────┐
-       ↓          ↓          ↓
-      UI       Business    Data
-                Logic      Access
-       │          │          │
-       └──────────┼──────────┘
-                  ↓
-              Database
-```
-
-Learn concepts such as:
-
-```text
-Separation of concerns
-Layering
-Modularity
-Dependency inversion
-Interfaces
-DTOs
-Services
-Repositories
-Controllers
-```
-
-A common architecture is:
-
-```text
-Presentation
-     ↓
-Application / Service
-     ↓
-Domain
-     ↓
-Persistence
-     ↓
-Database
-```
-
-This is the point where your Java knowledge starts becoming **software engineering** rather than simply programming.
-
----
-
-# 7. Stage 5 — Learn databases
-
-Almost every serious application needs persistent data.
-
-Start with **relational databases**.
-
-Learn:
-
-```text
-Table
-Row
-Column
-Primary key
-Foreign key
-Index
-Constraint
-Transaction
-```
-
-Then SQL:
-
-```sql
-SELECT
-INSERT
-UPDATE
-DELETE
-JOIN
-GROUP BY
-ORDER BY
-```
-
-For example:
-
-```text
-Customer
-   │
-   │ 1:N
-   ↓
-Order
-   │
-   │ 1:N
-   ↓
-OrderItem
-   │
-   │ N:1
-   ↓
-Product
-```
-
-Learn how this domain model maps to database tables.
-
-Then learn Java database access:
-
-```text
-Java
- ↓
-JDBC
- ↓
-SQL
- ↓
-Database
-```
-
-Later you can learn ORM technologies such as JPA/Hibernate.
-
-But understand SQL **before** relying heavily on an ORM.
-
----
-
-# 8. Stage 6 — Learn user interfaces
-
-Now learn how users interact with applications.
-
-There are two major directions.
-
-## Desktop
-
-Since you're interested in Java:
-
-```text
-Java
- ↓
-JavaFX
- ↓
-Desktop application
-```
-
-Build something like:
-
-```text
-Text editor
-Calculator
-File manager
-Database browser
-```
-
-This is an excellent way to understand event-driven programming:
-
-```text
-User
- ↓
-Mouse / keyboard
- ↓
-Event
- ↓
-Handler
- ↓
-Application state
- ↓
-UI update
-```
-
----
-
-# 9. Then learn web application programming
-
-This is probably the most important application-programming direction today.
-
-Understand:
-
-```text
-Browser
-   ↓
-HTTP
-   ↓
-Web server
-   ↓
-Application
-   ↓
-Database
+# 4. Stage 3 — Learn Linux command-line fundamentals
+
+Use Linux as your laboratory.
+
+You should become comfortable with:
+
+```bash
+ls
+cd
+cp
+mv
+rm
+find
+grep
+cat
+less
+head
+tail
+sort
+uniq
+cut
+sed
+awk
 ```
 
 Then learn:
 
-### Frontend
+```bash
+ps
+top
+htop
+kill
+jobs
+fg
+bg
+```
+
+and:
+
+```bash
+chmod
+chown
+ls -l
+```
+
+Also understand:
+
+```bash
+stdin
+stdout
+stderr
+pipe
+redirect
+```
+
+For example:
+
+```bash
+cat file.txt | grep hello | sort
+```
+
+Don't merely memorize the command.
+
+Ask:
+
+> **What operating-system mechanisms make this possible?**
+
+That question will lead you naturally toward system programming.
+
+---
+
+# 5. Stage 4 — Learn system calls
+
+This is the heart of practical system programming.
+
+Start with:
 
 ```text
-HTML
-CSS
-JavaScript
+open()
+close()
+read()
+write()
+```
+
+Then:
+
+```text
+stat()
+lseek()
+dup()
+dup2()
+```
+
+Then:
+
+```text
+fork()
+exec()
+wait()
+waitpid()
+exit()
+```
+
+Then:
+
+```text
+pipe()
+mmap()
+munmap()
+```
+
+And later:
+
+```text
+socket()
+bind()
+listen()
+accept()
+connect()
+```
+
+A particularly important distinction is:
+
+```text
+C library function
+       ↓
+system call
+       ↓
+kernel
+```
+
+For example:
+
+```c
+printf("hello\n");
+```
+
+may eventually result in a system call such as:
+
+```text
+write()
+```
+
+You should learn to recognize the boundary between **user space and kernel space**.
+
+---
+
+# 6. Stage 5 — Learn Unix processes
+
+This should be one of your first major projects.
+
+Understand:
+
+```text
+Process
+PID
+Parent process
+Child process
+fork()
+exec()
+wait()
+exit()
+```
+
+Start with:
+
+```c
+fork();
+```
+
+Then understand:
+
+```text
+           shell
+             │
+           fork()
+          /      \
+         /        \
+      parent     child
+                   │
+                 exec()
+                   │
+                   ↓
+                 program
+```
+
+This leads to the most important Unix idea:
+
+> **fork creates a process; exec replaces the process's program.**
+
+Then build a tiny shell.
+
+For example:
+
+```bash
+myshell> ls
+myshell> pwd
+myshell> cat file.txt
+```
+
+Eventually:
+
+```bash
+myshell> ls | grep ".c"
+```
+
+A small shell is an **excellent system-programming project**.
+
+---
+
+# 7. Stage 6 — Learn files and the Unix I/O model
+
+Don't think of files only as:
+
+```text
+filename → data
+```
+
+Learn the Unix model:
+
+```text
+Application
+     │
+     ↓
+file descriptor
+     │
+     ↓
+kernel
+     │
+     ↓
+file / device / pipe / socket
+```
+
+For example:
+
+```c
+int fd = open("hello.txt", O_RDONLY);
+
+read(fd, buffer, 100);
+
+close(fd);
 ```
 
 Understand:
 
 ```text
-DOM
-Events
-HTTP
-JSON
-Forms
-Browser storage
+file descriptor
+open file
+inode
+filesystem
+buffer/cache
+device
 ```
 
-### Backend
-
-For Java:
+Then notice something beautiful:
 
 ```text
-Java
- ↓
-Spring Boot
- ↓
-REST API
- ↓
-Database
+file
+pipe
+terminal
+socket
+```
+
+can all be represented through file descriptors.
+
+This is one of the foundational ideas of Unix system programming.
+
+---
+
+# 8. Stage 7 — Learn processes, threads, and concurrency
+
+After processes, learn threads.
+
+Study:
+
+```text
+process
+thread
+address space
+context switch
+```
+
+Then:
+
+```c
+pthread_create()
+pthread_join()
+```
+
+Learn synchronization:
+
+```text
+mutex
+semaphore
+condition variable
+read/write lock
+atomic operation
+```
+
+Then study classic problems:
+
+```text
+Producer / Consumer
+Reader / Writer
+Dining Philosophers
 ```
 
 For example:
 
 ```text
-Browser
-   │
-   │ GET /users/123
-   ↓
-Spring Boot
-   │
-   ↓
-Service
-   │
-   ↓
-Repository
-   │
-   ↓
-Database
+Producer
+    │
+    ↓
+┌─────────────┐
+│   Buffer    │
+└─────────────┘
+    │
+    ↓
+Consumer
 ```
 
-This will connect directly with your previous studies of **client-side and server-side programming**.
+Now you're encountering one of the fundamental difficulties of systems:
+
+> **How can multiple independent execution flows safely share resources?**
 
 ---
 
-# 10. Stage 7 — Learn APIs and networking
+# 9. Stage 8 — Learn virtual memory
 
-Once you understand web applications, learn how applications communicate.
-
-Start with:
-
-```text
-HTTP
-URL
-Request
-Response
-Header
-Body
-Status code
-Cookie
-Session
-JSON
-REST
-```
-
-Then build:
-
-```text
-Client
-   │
-   │ HTTP
-   ↓
-REST API
-   │
-   ↓
-Database
-```
-
-For example:
-
-```http
-GET /api/products
-```
-
-might produce:
-
-```json
-[
-    {
-        "id": 1,
-        "name": "Book",
-        "price": 20
-    }
-]
-```
-
-This is the fundamental architecture behind a huge number of modern applications.
-
----
-
-# 11. Stage 8 — Learn testing and debugging
-
-A serious application programmer must learn how to **prove that the application works**.
+This is where your understanding of C and processes comes together.
 
 Learn:
 
 ```text
-Unit testing
-Integration testing
-System testing
-Mocking
-Assertions
-Logging
-Debugging
+virtual address
+physical address
+page
+page table
+TLB
+page fault
+memory mapping
 ```
 
-For Java:
+Then:
 
 ```text
-JUnit
-Mockito
+malloc()
+mmap()
+brk()
 ```
 
-But don't just learn how to write:
-
-```java
-assertEquals(10, result);
-```
-
-Learn how to design code so that it can be tested.
-
-That means thinking about:
+Understand:
 
 ```text
-dependencies
-interfaces
-side effects
-state
-input/output
+Virtual address
+      │
+      ↓
+   Page table
+      │
+      ↓
+Physical address
+      │
+      ↓
+     RAM
 ```
 
-This is another reason good architecture matters.
+And understand why two processes can both have:
+
+```text
+0x400000
+```
+
+but that address can refer to different physical memory.
+
+This is a major conceptual milestone.
 
 ---
 
-# 12. Stage 9 — Learn application security
+# 10. Stage 9 — Learn signals and IPC
 
-Once you build networked applications, security becomes essential.
+Then study Unix communication mechanisms.
 
-Learn the fundamentals:
+### Signals
 
 ```text
-Authentication
-Authorization
-Password hashing
-Sessions
-Cookies
-TLS
-Input validation
-SQL injection
-XSS
-CSRF
-Access control
+SIGINT
+SIGTERM
+SIGCHLD
+SIGKILL
+SIGSEGV
 ```
 
-You don't need to become a security specialist initially.
+Understand:
 
-But every application programmer should understand:
+```c
+signal()
+sigaction()
+```
 
-> **Never trust input coming from outside the application.**
+### IPC
+
+Learn:
+
+```text
+pipe
+FIFO
+shared memory
+message queue
+socket
+```
+
+Understand the differences:
+
+```text
+Process A
+    │
+    ├── pipe ─────────→ Process B
+    │
+    ├── shared memory → Process B
+    │
+    └── socket ───────→ Process B
+```
 
 ---
 
-# 13. Stage 10 — Learn concurrency and scalability
+# 11. Stage 10 — Learn networking
 
-Eventually your applications won't have just one user.
+Since you've already been exploring the Internet, this will connect nicely with your previous studies.
 
-Instead:
-
-```text
-             Server
-          /    |    \
-         /     |     \
-       User   User   User
-```
-
-Now you need:
+Start with:
 
 ```text
-Concurrency
-Threads
-Synchronization
-Connection pools
-Caching
-Transactions
-Queues
+socket
+IP address
+port
+TCP
+UDP
 ```
 
-Then understand scalability:
+Then:
 
-```text
-                 Load Balancer
-                 /           \
-                ↓             ↓
-            Server A       Server B
-                \             /
-                 ↓           ↓
-                   Database
+```c
+socket()
+bind()
+listen()
+accept()
+connect()
+send()
+recv()
 ```
 
-This is where your **system-programming knowledge becomes extremely valuable**.
+Build:
 
----
+### Project 1
 
-# 14. Your projects should grow progressively
-
-I recommend this project ladder:
-
-### Level 1 — Console applications
-
-```text
-Calculator
-Student management
-Contact manager
-Bank account
-Library management
-```
-
-### Level 2 — Data structures
-
-```text
-Address book
-Dictionary
-File indexer
-Task manager
-```
-
-### Level 3 — Desktop
-
-```text
-Text editor
-File manager
-Database client
-```
-
-### Level 4 — Database
-
-```text
-Inventory system
-Library system
-Expense tracker
-```
-
-### Level 5 — Web
-
-```text
-Blog
-Todo application
-Online bookstore
-```
-
-### Level 6 — Full-stack
-
-```text
-Frontend
-   ↓
-REST API
-   ↓
-Java/Spring backend
-   ↓
-Database
-```
-
-### Level 7 — Distributed
+TCP echo server:
 
 ```text
 Client
-  ↓
-API Gateway
-  ↓
-Service A ──→ Database
-  ↓
-Service B ──→ Cache
-  ↓
-Message Queue
+   │
+   │ "hello"
+   ↓
+Server
+   │
+   │ "hello"
+   ↓
+Client
 ```
 
-Don't start at Level 7.
+### Project 2
+
+Multi-client server:
+
+```text
+             Server
+            /  |  \
+           /   |   \
+       Client Client Client
+```
+
+Then learn:
+
+```text
+select()
+poll()
+epoll()
+```
+
+Now you're getting into real-world server programming.
 
 ---
 
-# 15. One project should evolve through the entire roadmap
+# 12. At this point, study operating-system internals
 
-This is actually one of the best ways to learn.
+Once you can write system programs, start studying how the kernel itself works.
 
-Take a **library management system**.
+Learn:
 
-Start:
-
-```text
-Java console application
-```
-
-Then add:
+### Process management
 
 ```text
-OOP
- ↓
-Collections
- ↓
-File persistence
- ↓
-SQL database
- ↓
-JDBC
- ↓
-Layered architecture
- ↓
-REST API
- ↓
-Web frontend
- ↓
-Authentication
- ↓
-Testing
- ↓
-Deployment
+scheduler
+context switching
+process states
 ```
 
-You are no longer learning isolated technologies.
+### Memory management
 
-You're watching the **same application evolve**.
+```text
+virtual memory
+paging
+page replacement
+TLB
+copy-on-write
+```
 
-That's much closer to real software development.
+### Filesystem
+
+```text
+inode
+directory
+block
+journaling
+VFS
+```
+
+### I/O
+
+```text
+interrupt
+DMA
+device driver
+I/O scheduler
+```
+
+### Synchronization
+
+```text
+spinlock
+mutex
+semaphore
+atomic operation
+deadlock
+```
+
+At this stage, operating-system theory and practical programming reinforce each other.
 
 ---
 
-# 16. What to learn first, second, and third
+# 13. The best project sequence
 
-For your particular background, I'd use this order:
+I strongly recommend **projects rather than only reading books**.
+
+A good sequence is:
 
 ```text
-                    Java
-                     ↓
-            Data Structures
-                     ↓
-             Algorithms
-                     ↓
-                  OOP
-                     ↓
-          Design Principles
-                     ↓
-       Application Architecture
-                     ↓
-                 SQL
-                     ↓
-                 JDBC
-                     ↓
-                HTTP/Web
-                     ↓
-             Spring Boot
-                     ↓
-                REST API
-                     ↓
-              JavaScript
-                     ↓
-             Web Frontend
-                     ↓
-          Testing + Debugging
-                     ↓
-                Security
-                     ↓
-        Concurrency + Scalability
-                     ↓
-          Distributed Systems
+Project 1
+C memory allocator
+        ↓
+Project 2
+Unix file-copy program
+        ↓
+Project 3
+grep-like program
+        ↓
+Project 4
+Unix shell
+        ↓
+Project 5
+Process manager
+        ↓
+Project 6
+Producer/consumer
+        ↓
+Project 7
+Multithreaded server
+        ↓
+Project 8
+TCP chat server
+        ↓
+Project 9
+HTTP server
+        ↓
+Project 10
+Mini filesystem
 ```
 
-Meanwhile, keep your system-programming track running in parallel:
+For example, don't simply learn `malloc()`.
+
+Try eventually implementing:
+
+```c
+void *my_malloc(size_t size);
+void my_free(void *ptr);
+```
+
+That forces you to understand:
+
+```text
+memory
+blocks
+metadata
+alignment
+fragmentation
+free lists
+system calls
+```
+
+---
+
+# 14. The books/resources I'd use
+
+A very strong combination is:
+
+### First: C
+
+**K&R — The C Programming Language**
+
+Don't spend months trying to memorize C. Use it to become comfortable enough to build programs.
+
+### Then: Unix system programming
+
+**The Linux Programming Interface — Michael Kerrisk**
+
+This is one of the best resources for learning practical Linux system programming.
+
+### Then: Operating systems
+
+**Operating Systems: Three Easy Pieces (OSTEP)**
+
+It's especially good because it explains the fundamental ideas:
+
+```text
+Virtualization
+Concurrency
+Persistence
+```
+
+### Then: Computer systems
+
+**Computer Systems: A Programmer's Perspective (CS:APP)**
+
+This connects:
 
 ```text
 C
  ↓
-Linux
+Assembly
  ↓
-System calls
+CPU
  ↓
-Processes
+Memory
  ↓
-Virtual memory
- ↓
-Threads
+OS
  ↓
 Networking
- ↓
-OS internals
 ```
 
-Eventually the two tracks meet:
+That's particularly useful given your interest in understanding the underlying principles rather than just APIs.
+
+---
+
+# 15. A particularly good learning order for you
+
+Given the subjects you've been asking about recently, I'd actually recommend this sequence:
 
 ```text
-             Application
-                  │
-                  ↓
-           Application APIs
-                  │
-                  ↓
-              Libraries
-                  │
-                  ↓
-          Operating System
-                  │
-                  ↓
-          System Programming
-                  │
-                  ↓
-              Hardware
+                 Computer
+                    │
+                    ↓
+            Computer Organization
+                    │
+                    ↓
+                 Assembly
+                    │
+                    ↓
+                    C
+                    │
+                    ↓
+            Linux System Calls
+                    │
+                    ↓
+                 Processes
+                    │
+                    ↓
+             Virtual Memory
+                    │
+                    ↓
+          Filesystem + I/O
+                    │
+                    ↓
+             Threads + IPC
+                    │
+                    ↓
+                Networking
+                    │
+                    ↓
+             Operating Systems
+                    │
+                    ↓
+          Server-side programming
+                    │
+                    ↓
+                 Internet
+                    │
+                    ↓
+                   Web
+```
+
+The important thing is that **you don't need to treat these as isolated subjects**.
+
+For example:
+
+```text
+fork()
+```
+
+makes much more sense after you understand:
+
+```text
+CPU
+ ↓
+process
+ ↓
+address space
+ ↓
+virtual memory
+```
+
+And:
+
+```text
+socket()
+```
+
+makes much more sense after:
+
+```text
+file descriptor
+ ↓
+kernel
+ ↓
+network stack
+ ↓
+TCP/IP
 ```
 
 ---
 
-# 17. The four questions to ask while learning
+# 16. The most important learning principle
 
-Just as with system programming, don't memorize technologies mechanically.
-
-For every application technology, ask:
-
-### ① What problem does it solve?
-
-For example:
-
-> Why do we need a database?
-
-### ② What abstraction does it provide?
-
-For example:
-
-> What does an ORM abstract?
-
-### ③ What are the underlying mechanisms?
-
-For example:
+Don't learn system programming like this:
 
 ```text
-JPA
- ↓
-Hibernate
- ↓
-JDBC
- ↓
-SQL
- ↓
-Database
+open()
+read()
+write()
+fork()
+exec()
+pipe()
+mmap()
+socket()
+pthread_create()
+...
 ```
 
-### ④ What trade-offs does it introduce?
+That becomes API memorization.
+
+Instead ask four questions for **every mechanism**:
+
+```text
+1. What problem does it solve?
+
+2. Why is it necessary?
+
+3. What abstraction does it provide?
+
+4. What happens underneath?
+```
 
 For example:
 
+### `fork()`
+
+**Problem:** How can a Unix process create another process?
+
+**Abstraction:** Create a new process.
+
+**Why necessary:** Process isolation and independent execution.
+
+**Underneath:**
+
 ```text
-ORM
-  ↓
-less SQL code
-  +
-object-oriented programming model
-  -
-less direct control
-  -
-potential performance surprises
+fork()
+ ↓
+kernel
+ ↓
+create process structures
+ ↓
+create address-space relationship
+ ↓
+copy/share resources
+ ↓
+return to parent + child
 ```
 
-This way of learning will prevent you from becoming someone who merely knows **how to use Spring**, **how to use React**, or **how to use Hibernate**, without understanding why they exist.
+That's system programming thinking.
 
 ---
 
-# 18. The deepest learning goal
+# 17. Your final goal
 
-Ultimately, I would divide your understanding into four levels:
+Eventually you should be able to look at:
+
+```c
+int main(void)
+{
+    int fd = open("data.txt", O_RDONLY);
+
+    char buf[4096];
+
+    ssize_t n = read(fd, buf, sizeof(buf));
+
+    close(fd);
+
+    return 0;
+}
+```
+
+and mentally see something like:
 
 ```text
-Level 1
-"I know the syntax."
-
-        ↓
-
-Level 2
-"I know how to use the library."
-
-        ↓
-
-Level 3
-"I understand how to design the application."
-
-        ↓
-
-Level 4
-"I understand why the architecture and abstractions
-exist and what happens underneath them."
+C source
+   ↓
+compiler
+   ↓
+machine instructions
+   ↓
+CPU
+   ↓
+system call
+   ↓
+CPU privilege transition
+   ↓
+kernel
+   ↓
+file descriptor
+   ↓
+VFS
+   ↓
+filesystem
+   ↓
+block/device layer
+   ↓
+device driver
+   ↓
+storage hardware
 ```
 
-Aim for **Level 4**.
+**That is the level of understanding I would aim for.**
 
-For example, don't stop at:
-
-```java
-repository.findById(10);
-```
-
-Understand the whole chain:
-
-```text
-Java application
-       ↓
-Repository
-       ↓
-ORM
-       ↓
-JDBC
-       ↓
-SQL
-       ↓
-Database protocol
-       ↓
-Operating system
-       ↓
-Network / disk
-```
-
-That connects your **application-programming study** with your **system-programming study**.
-
-And when you understand both directions—
-
-```text
-                    Human problem
-                         ↓
-                Application design
-                         ↓
-                  Program / API
-                         ↓
-                    Libraries
-                         ↓
-                 Operating System
-                         ↓
-                   CPU / Memory
-                         ↓
-                     Hardware
-```
-
-—you have a much more complete understanding of how modern software is actually built.
+Once you can mentally trace a high-level operation all the way down toward the hardware—and understand why each layer exists—you aren't merely "using system programming APIs." **You understand system programming.**
