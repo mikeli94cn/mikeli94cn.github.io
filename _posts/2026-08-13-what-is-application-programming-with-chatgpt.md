@@ -1,3 +1,4 @@
+with chatgpt
 # what is application programming?
 **Application programming** is the practice of building software that directly solves problems for **users or organizations**, using the services provided by the operating system and other lower-level software.
 
