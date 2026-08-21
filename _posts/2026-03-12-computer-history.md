@@ -18,3 +18,30 @@ Computer combined with hardware,software,network,data
 - memory management
 - file management
 - security management
+
+``` text
+*computer
+-cpu
+-memory
+-input/ouput
+-storage
+ag delay line
+wilim tube
+-display
+CRT
+-GPU
+
+*software
+
+compiler
+file system
+**operating system
+**programming language
+**database
+**network
+**computer graphics 
+gui
+computer vision
+software engineering
+computer security
+```
