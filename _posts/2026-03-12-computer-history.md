@@ -20,7 +20,8 @@ Computer combined with hardware,software,network,data
 - security management
 
 ``` text
-*computer
+computer
+*hardware
 -cpu
 -memory
 -input/ouput
