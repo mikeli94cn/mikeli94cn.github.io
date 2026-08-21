@@ -1,5 +1,3 @@
-
-
 ### The cycle of information involves four fundamental, interconnected pillars: 
 
 **storage, processing, communication, and expression**
@@ -34,7 +32,7 @@ Expression is the representation or output of processed information, making it a
 - Symbolic Expression: Data is expressed using symbolic patterns (e.g., text, voice, graphics) created from processors' basic "alphabets," such as binary or Morse code.
 - User Interface (UI): Systems express information back to users in a format that confirms actions (e.g., "submit" confirmation).
 
-The Integrated Cycle
+### The Integrated Cycle
 
 These components work together as an Information Processing Cycle (IPOS):
 - Input: Data entered into a system (e.g., keyboard).
@@ -44,27 +42,40 @@ These components work together as an Information Processing Cycle (IPOS):
 - Communication: Sharing data with others (e.g., network).
 
 
-What are the 4 stages of information processing?
+**What are the 4 stages of information processing?**
+
 These are input, processing, storage, output and communication.
+
 1.1 Information processing cycle | General concepts of computing
+
 https://www.siyavula.com/read/za/computer-applications-technology/grade-11/general-concepts-of-computing/01-general-concepts-of-computing
 
-What are the 5 stages of the data processing cycle?
+**What are the 5 stages of the data processing cycle?**
+
 1 depicts the data processing cycle which consists of five steps, data collection, data input, data processing and storage, data analysis and data output.
+
 1. Data Processing Cycle | Download Scientific Diagram - ResearchGate
-ResearchGate
+
+ResearchGate 
+
 https://www.researchgate.net › figure › Data-Processing-...
 
-What are the 7 information processes?
+**What are the 7 information processes?**
 It stands for Collect, Organise, Analyse, Store(/retrieve), Transmit(/receive), Process and Display. Following these seven information processes, you can go through step by step in how an information system collects it's data, processes it and then displays it for a user or purpose.
+
 The Seven Information Processes | InfoProTech Wiki - Fandom
+
 InfoProTech Wiki - Fandom
+
 https://infoprotech.fandom.com › wiki › The_Seven_Inf...
 
-What are the 4 processes of a computer?
+**What are the 4 processes of a computer?**
 Input, process, output, and storage, collectively known as IPOS, are the four fundamental components that underpin how computer systems operate.
+
 The Complete Guide to Input, Process, Output, and Storage in ...
+
 Lenovo
+
 https://www.lenovo.com › glossary › ipos
 
 ## information
