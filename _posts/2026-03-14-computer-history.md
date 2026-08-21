@@ -26,28 +26,28 @@ Computer combined with hardware,software,network,data
 
 These processes, which define modern digital systems and human cognition, enable the transformation of raw data into usable knowledge and action.
 
-Information Storage (Retention)
+#### Information Storage (Retention)
 
 Storage is the retention of data for future access, serving as the memory component of an information system.
-Media Types: Ranges from physical formats like paper and film to electronic media such as hard drives, SSDs, magnetic tape, and cloud storage.
+- Media Types: Ranges from physical formats like paper and film to electronic media such as hard drives, SSDs, magnetic tape, and cloud storage.
 - Areal Density: Researchers focus on maximizing bits per square/cubic inch to increase storage capacity.
 - Memory Hierarchy: In human cognition, this involves sensory, short-term, and long-term memory, as defined by the Atkinson-Shiffrin model.
 
-Information Processing (Transformation)
+#### Information Processing (Transformation)
 
 Processing is the manipulation and organization of data, transforming input into useful information.
 - Computational Processing: Central Processing Units (CPUs) and GPUs execute instructions and calculate data.
 - Cognitive Processing: The human mind acts as a processor by organizing, storing, and retrieving information through encoding.
 - Components: Involves inputting, organizing, analyzing, and calculating data.
 
-Information Communication (Transmission)
+#### Information Communication (Transmission)
 
 Communication enables the movement of information within systems or between them.
 - Transmission Technology: Involves networking hardware (e.g., modems, mobile antennas) that transmits digital bits (0s and 1s).
 - Protocols: Digital data is transmitted through serial ports, USB, and network protocols.
 - Inter-Process Communication (IPC): Mechanisms (shared memory, message passing) allow software processes to share data.
 
-Information Expression (Output/Output)
+#### Information Expression (Output/Output)
 
 Expression is the representation or output of processed information, making it accessible and understandable.
 - Output Devices: Information is expressed via screens, speakers, and printers.
