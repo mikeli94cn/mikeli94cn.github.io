@@ -1,0 +1,703 @@
+# How to Learn Compiler Design Systematically
+
+Compiler design is one of the best subjects for understanding the entire computer system because it connects:
+
+```
+Programming Languages
+        ↓
+Compiler
+        ↓
+Operating System
+        ↓
+Computer Architecture
+        ↓
+Hardware
+```
+
+A systematic learning path should move from **language theory → compiler components → implementation → advanced topics**.
+
+---
+
+# Stage 0: Understand the Big Picture First
+
+Before writing a compiler, understand the overall pipeline:
+
+```
+Source Program
+      |
+      ↓
+Lexical Analysis
+      |
+      ↓
+Parsing
+      |
+      ↓
+Semantic Analysis
+      |
+      ↓
+Intermediate Representation
+      |
+      ↓
+Optimization
+      |
+      ↓
+Code Generation
+      |
+      ↓
+Executable Program
+```
+
+The goal is to answer:
+
+* Why does a compiler need multiple stages?
+* Why not directly translate source code into machine code?
+* Why do we need intermediate representation?
+* Why are optimization and correctness difficult?
+
+---
+
+# Stage 1: Programming Language Foundations
+
+A compiler translates programming languages, so first understand what a language is.
+
+Learn:
+
+## 1. Syntax
+
+How programs are structured.
+
+Example:
+
+```
+if (condition)
+    statement;
+```
+
+The syntax rules define valid programs.
+
+Study:
+
+* Backus–Naur Form (BNF)
+* Context-Free Grammars (CFG)
+
+Example grammar:
+
+```
+Expression → Expression + Term
+Expression → Term
+Term → Number
+```
+
+---
+
+## 2. Semantics
+
+What programs mean.
+
+Example:
+
+```c
+x = x + 1;
+```
+
+Syntax:
+
+"assignment expression"
+
+Semantics:
+
+"take current x, add 1, store the result"
+
+Learn:
+
+* operational semantics
+* denotational semantics
+* type systems
+
+---
+
+# Stage 2: Learn the Mathematical Foundations
+
+Compiler theory is built on several areas.
+
+---
+
+## 1. Automata Theory
+
+Used in lexical analysis.
+
+Learn:
+
+* finite automata
+* deterministic finite automata (DFA)
+* nondeterministic finite automata (NFA)
+
+Example:
+
+Recognizing identifiers:
+
+```
+letter
+   |
+   ↓
+(letter | digit)*
+```
+
+---
+
+## 2. Formal Languages
+
+Used in parsing.
+
+Learn:
+
+* regular languages
+* context-free languages
+* grammars
+* ambiguity
+
+Example:
+
+Arithmetic grammar:
+
+```
+E → E + T
+E → T
+T → T * F
+T → F
+F → number
+```
+
+---
+
+## 3. Graph Theory
+
+Used heavily in optimization.
+
+Examples:
+
+* control flow graphs
+* dependency graphs
+* register allocation
+
+---
+
+# Stage 3: Learn Lexical Analysis
+
+The first real compiler component.
+
+Goal:
+
+```
+Characters
+     ↓
+Tokens
+```
+
+Example:
+
+Input:
+
+```c
+int total = price + tax;
+```
+
+Output:
+
+```
+INT
+IDENTIFIER(total)
+=
+IDENTIFIER(price)
++
+IDENTIFIER(tax)
+;
+```
+
+Learn:
+
+* token design
+* regular expressions
+* finite-state machines
+
+Practice:
+
+Build a lexer for:
+
+* calculator language
+* simple programming language
+
+Tools:
+
+* Lex
+* Flex
+
+---
+
+# Stage 4: Learn Parsing
+
+Parsing is usually the most challenging beginner topic.
+
+Goal:
+
+```
+Tokens
+    ↓
+Syntax Tree
+```
+
+Example:
+
+Input:
+
+```
+a + b * c
+```
+
+Tree:
+
+```
+       +
+      / \
+     a   *
+        / \
+       b   c
+```
+
+Learn:
+
+## Top-down parsing
+
+Examples:
+
+* Recursive descent
+* LL parsing
+
+## Bottom-up parsing
+
+Examples:
+
+* LR parsing
+* LALR parsing
+
+Tools:
+
+* Yacc
+* Bison
+* ANTLR
+
+---
+
+# Stage 5: Learn Abstract Syntax Trees (AST)
+
+AST is the bridge between parsing and later stages.
+
+Example:
+
+Source:
+
+```c
+x = a + b;
+```
+
+AST:
+
+```
+       =
+      / \
+     x   +
+        / \
+       a   b
+```
+
+Learn:
+
+* tree structures
+* visitors
+* tree transformations
+
+Practice:
+
+Create an interpreter for a small language.
+
+---
+
+# Stage 6: Learn Semantic Analysis
+
+Now your compiler understands meaning.
+
+Important topics:
+
+---
+
+## Symbol Tables
+
+Store information about identifiers.
+
+Example:
+
+```
+Name     Type
+--------------
+x        int
+salary   float
+```
+
+Learn:
+
+* hash tables
+* scopes
+* namespaces
+
+---
+
+## Type Checking
+
+Example:
+
+Correct:
+
+```c
+int x;
+x = 10;
+```
+
+Incorrect:
+
+```c
+int x;
+x = "hello";
+```
+
+Learn:
+
+* static typing
+* type inference
+* polymorphism
+
+---
+
+# Stage 7: Learn Intermediate Representation (IR)
+
+This is the heart of modern compilers.
+
+The idea:
+
+```
+Many Languages
+       |
+       ↓
+      IR
+       |
+       ↓
+Many CPUs
+```
+
+Learn:
+
+* three-address code
+* SSA (Static Single Assignment)
+* control flow graphs
+
+Example:
+
+Source:
+
+```c
+a = b + c;
+```
+
+IR:
+
+```
+t1 = b + c
+a = t1
+```
+
+---
+
+# Stage 8: Learn Compiler Optimization
+
+Optimization is where compiler intelligence appears.
+
+Learn:
+
+## Local optimization
+
+Inside small sections.
+
+Examples:
+
+* constant folding
+* algebraic simplification
+
+---
+
+## Global optimization
+
+Across the whole program.
+
+Examples:
+
+* dead code elimination
+* common subexpression elimination
+
+---
+
+## Loop optimization
+
+Important because loops dominate execution time.
+
+Learn:
+
+* loop invariant code motion
+* loop unrolling
+
+---
+
+# Stage 9: Learn Code Generation
+
+Now produce machine code.
+
+You need knowledge of:
+
+## Computer architecture
+
+Learn:
+
+* registers
+* instructions
+* memory addressing
+* calling conventions
+
+Example:
+
+IR:
+
+```
+a = b + c
+```
+
+x86:
+
+```asm
+MOV eax,b
+ADD eax,c
+MOV a,eax
+```
+
+---
+
+# Stage 10: Learn Runtime Systems
+
+Modern languages need runtime support.
+
+Study:
+
+## Memory management
+
+Examples:
+
+* stack
+* heap
+* garbage collection
+
+---
+
+## Function calls
+
+Learn:
+
+* stack frames
+* calling conventions
+* recursion implementation
+
+---
+
+## Virtual machines
+
+Examples:
+
+* JVM
+* .NET CLR
+
+---
+
+# Stage 11: Build Small Compilers
+
+Do not start with C or Java.
+
+Start small.
+
+A good progression:
+
+---
+
+## Project 1: Calculator Interpreter
+
+Support:
+
+```
+1 + 2 * 3
+```
+
+Learn:
+
+* lexer
+* parser
+* AST
+
+---
+
+## Project 2: Tiny Programming Language
+
+Support:
+
+```
+let x = 10;
+
+print(x);
+```
+
+Add:
+
+* variables
+* statements
+* functions
+
+---
+
+## Project 3: Compiler to Assembly
+
+Example:
+
+Your language:
+
+```
+x = 10 + 20;
+```
+
+Output:
+
+```asm
+MOV eax,30
+```
+
+---
+
+## Project 4: LLVM-based Compiler
+
+Learn:
+
+* LLVM IR
+* optimization passes
+* backend generation
+
+---
+
+# Recommended Books
+
+## Beginner
+
+### Crafting Interpreters
+
+Excellent practical introduction.
+
+You build:
+
+* interpreter
+* virtual machine
+
+---
+
+## Classic
+
+### Compilers: Principles, Techniques, and Tools
+
+The famous "Dragon Book".
+
+Covers:
+
+* lexical analysis
+* parsing
+* optimization
+* code generation
+
+---
+
+## Advanced
+
+### Engineering a Compiler
+
+More modern compiler engineering.
+
+---
+
+# A Practical Learning Order
+
+A realistic path:
+
+```
+Programming Language Basics
+          |
+          ↓
+Data Structures
+          |
+          ↓
+Automata Theory
+          |
+          ↓
+Lexers
+          |
+          ↓
+Parsers
+          |
+          ↓
+AST
+          |
+          ↓
+Semantic Analysis
+          |
+          ↓
+IR
+          |
+          ↓
+Optimization
+          |
+          ↓
+Code Generation
+          |
+          ↓
+Build Your Own Compiler
+```
+
+---
+
+# How Compiler Design Fits Into Computer Science
+
+Compiler design is a "central hub" subject:
+
+```
+             Algorithms
+                 |
+                 |
+Programming ---- Compiler ---- Architecture
+Languages          |
+                 |
+                 |
+              Operating Systems
+                 |
+                 |
+              Software Engineering
+```
+
+Learning compilers gives you a deeper understanding of:
+
+* how programming languages work
+* why abstractions are possible
+* how software becomes hardware instructions
+* how computers execute programs
+
+A person who understands compilers understands one of the deepest transformations in computing:
+
+> **How human ideas become electrical operations inside a machine.**
