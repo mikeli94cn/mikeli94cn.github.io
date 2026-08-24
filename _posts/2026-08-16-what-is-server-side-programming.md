@@ -1,3 +1,4 @@
+with chatgpt
 # what is server-side programming?
 Server-side programming is the process of writing code that runs on a **server** rather than in a user's web browser. It handles the logic, data processing, and communication needed to make websites and web applications work.
 
