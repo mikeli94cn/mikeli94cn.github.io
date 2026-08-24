@@ -1,0 +1,485 @@
+Operating systems brought a **fundamental transformation to programming**. Before operating systems, programming meant controlling hardware directly. After operating systems, programming became the process of building software on top of **abstract services** provided by the OS.
+
+The biggest contributions are:
+
+> **Operating systems changed programming from "controlling machines" into "building applications using managed resources."**
+
+Let's examine the major changes.
+
+---
+
+# 1. OS Introduced Hardware Abstraction
+
+Before OS:
+
+A programmer had to know the exact hardware.
+
+Example:
+
+```text
+Write data to disk:
+- Know disk controller commands
+- Know physical disk addresses
+- Send hardware instructions
+```
+
+After OS:
+
+```c
+FILE *f = fopen("data.txt", "w");
+fprintf(f, "Hello");
+fclose(f);
+```
+
+The programmer does not care:
+
+* What disk model exists
+* Where the data is physically stored
+* How the controller works
+
+The OS hides hardware details.
+
+This created a new programming philosophy:
+
+```
+Application Code
+        |
+        ↓
+Operating System API
+        |
+        ↓
+Hardware
+```
+
+---
+
+# 2. OS Created the Concept of Processes
+
+Before OS:
+
+A program was basically:
+
+```
+Program = instructions loaded into memory
+```
+
+The programmer controlled execution directly.
+
+After OS:
+
+A running program became a **process**:
+
+```
+Process
+ |
+ +-- Program code
+ |
+ +-- Memory space
+ |
+ +-- CPU state
+ |
+ +-- Open files
+ |
+ +-- Security permissions
+```
+
+This enabled:
+
+* Multitasking
+* Multiple applications running together
+* Background services
+
+For example:
+
+Today you can run:
+
+```
+Browser
+Compiler
+Music player
+Editor
+Game
+```
+
+simultaneously because the OS manages processes.
+
+---
+
+# 3. OS Created System Programming
+
+Operating systems created a new programming layer:
+
+## User programming
+
+Examples:
+
+* Web applications
+* Games
+* Business software
+
+↓
+
+## System programming
+
+Examples:
+
+* Operating systems
+* Device drivers
+* Compilers
+* Runtime systems
+
+↓
+
+## Hardware
+
+System programming became a major field because programmers needed to build software that controls machines.
+
+Important languages emerged:
+
+* C
+* C++
+* Rust
+
+especially because they can interact closely with hardware.
+
+---
+
+# 4. OS Introduced APIs
+
+One of the biggest gifts of operating systems is the idea of a **standard interface**.
+
+Without OS:
+
+Every program talks directly to hardware.
+
+```
+Program A → Printer A
+Program B → Printer B
+Program C → Printer C
+```
+
+With OS:
+
+```
+          Applications
+
+               |
+               ↓
+
+          Standard API
+
+               |
+               ↓
+
+        Hardware Drivers
+```
+
+Programs can use common functions:
+
+Examples:
+
+Windows API:
+
+```c
+CreateFile();
+ReadFile();
+WriteFile();
+```
+
+Unix/Linux:
+
+```c
+open();
+read();
+write();
+```
+
+Programming became more portable.
+
+---
+
+# 5. OS Enabled Multitasking
+
+Before:
+
+```
+Run program A
+Wait
+Finish
+
+Run program B
+Wait
+Finish
+```
+
+After:
+
+```
+CPU
+
+Program A  -----
+Program B      -----
+Program C          -----
+```
+
+The OS introduced:
+
+* Scheduling algorithms
+* Context switching
+* Interrupt handling
+
+This changed application design.
+
+Modern software assumes:
+
+* Background tasks
+* Threads
+* Multiple users
+
+---
+
+# 6. OS Created Memory Management Concepts
+
+Before OS:
+
+Programmers manually managed memory.
+
+Example:
+
+```
+Address 1000 → store data
+Address 1001 → store variable
+```
+
+Very dangerous.
+
+OS introduced:
+
+## Virtual memory
+
+Programs see:
+
+```
+My memory:
+
+0 GB
+ |
+100 GB
+```
+
+The OS maps this to real memory.
+
+Programming gained:
+
+* Memory protection
+* Dynamic allocation
+* Process isolation
+
+Languages could create safer abstractions.
+
+For example:
+
+C:
+
+```c
+malloc();
+free();
+```
+
+Java:
+
+```java
+new Object();
+```
+
+The OS provides the foundation.
+
+---
+
+# 7. OS Enabled High-Level Languages
+
+This is a very important historical point.
+
+High-level languages became practical because operating systems provided services.
+
+Example:
+
+A Java program:
+
+```java
+File file = new File("data.txt");
+```
+
+depends on:
+
+```
+Java Library
+      |
+JVM
+      |
+Operating System
+      |
+File System
+      |
+Disk Hardware
+```
+
+Without OS abstractions:
+
+Languages like Java, Python, JavaScript would be much harder to implement.
+
+---
+
+# 8. OS Introduced Security Models
+
+Modern programming depends heavily on OS security.
+
+The OS provides:
+
+* Users
+* Permissions
+* Isolation
+* Authentication
+
+Example:
+
+Linux:
+
+```bash
+chmod 700 private_file
+```
+
+Windows:
+
+```
+User permissions
+Administrator rights
+```
+
+Applications do not freely access everything.
+
+This made multi-user computing possible.
+
+---
+
+# 9. OS Changed Software Architecture
+
+Before OS:
+
+Programs were usually:
+
+```
+Input
+ |
+Calculation
+ |
+Output
+```
+
+After OS:
+
+Programs became systems:
+
+```
+Application
+
+ |
+ +-- Processes
+ |
+ +-- Threads
+ |
+ +-- Files
+ |
+ +-- Network
+ |
+ +-- Database
+ |
+ +-- User Interface
+```
+
+Modern software architecture depends on OS concepts.
+
+Examples:
+
+* Web servers
+* Databases
+* Cloud systems
+* Mobile apps
+
+---
+
+# 10. OS Made the Computer a General Platform
+
+Before OS:
+
+A computer was built for a specific purpose.
+
+Example:
+
+```
+Machine → Weather calculation
+Machine → Military calculation
+Machine → Scientific calculation
+```
+
+After OS:
+
+A computer became:
+
+```
+Hardware Platform
+
+       ↓
+
+Operating System
+
+       ↓
+
+Thousands of Applications
+```
+
+The OS turned computers into general-purpose machines.
+
+---
+
+# The Relationship Between OS and Programming Paradigms
+
+The development of programming has followed OS evolution:
+
+| OS Innovation  | Programming Impact           |
+| -------------- | ---------------------------- |
+| Batch systems  | Job-oriented programming     |
+| Processes      | Concurrent programming       |
+| Time-sharing   | Interactive applications     |
+| Virtual memory | Large software systems       |
+| File systems   | Data-oriented programming    |
+| GUI systems    | Event-driven programming     |
+| Networks       | Distributed programming      |
+| Mobile OS      | Sensor/app programming       |
+| Cloud OS       | Service-oriented programming |
+
+---
+
+# The Deepest Impact
+
+The most important thing the operating system brought to programming is:
+
+> **The idea that software should not directly control complexity; instead, software should build on abstractions provided by lower layers.**
+
+This created the modern software stack:
+
+```
+Applications
+     ↓
+Frameworks
+     ↓
+Libraries
+     ↓
+Runtime
+     ↓
+Operating System
+     ↓
+Hardware
+```
+
+Almost all modern programming — Java, Python, web development, databases, AI systems, cloud computing — depends on this layered idea introduced by operating systems.
