@@ -1,4 +1,5 @@
 with chatgpt
+# what is operating system?
 An **operating system (OS)** is the main software that manages a computer or mobile device. It acts as a bridge between the **user**, the **applications**, and the **hardware**.
 
 ### What does an operating system do?
@@ -39,6 +40,7 @@ Imagine a computer is like a **car**:
 
 Without an operating system, a computer or smartphone would not be able to run programs or respond to your commands.
 
+# what is the history of operating system?
 ![Image](https://images.openai.com/static-rsc-4/m5iZcGDQh5_JVqSbKoP-PLDiHN4yNEz73y4Zx_4yq7FFYQ3HlV0arzz3UgvnBEIrsdHrfHApwILzyKWHRkNuqqP09hSSuYv689dT-fvlh_og4zwmCKox8TBut3kGWZbcRk_27L5lChVdROGsMW6CIkFE2XtReFDTCrHysxCMrpw8gNng94O8X4KMk5iqiaGy?purpose=fullsize)
 
 ![Image](https://images.openai.com/static-rsc-4/wjypgm4YAxv99edfeQMqTSuagcjj9c6Z5MPmRlj_2gLnmyOikoX8AQK8Cw6BuzomUaVNerPGajtaZP2BIdmRtPhv1GcbNR2eIxYo4oyqBaWwtNrdjqgw80RCcSiw3wPJgj7dLYJ8NlEBeghFlwhqyAB1Ju9aMI4zWimF4rV4fljnKt8KHx_CjmHHh0_cCHvs?purpose=fullsize)
@@ -503,6 +505,7 @@ Every major OS innovation answered a new challenge:
 
 So the operating system evolved from a simple **program loader** into a sophisticated **resource manager and abstraction layer** between humans and machines.
 
+# what is the underlying principle of operating system?
 The **underlying principle of an operating system (OS)** is:
 
 > **An operating system is a resource manager and abstraction layer that allows programs and humans to use computer hardware efficiently, safely, and conveniently.**
@@ -972,6 +975,7 @@ So, in one sentence:
 
 > **The operating system is a software layer that transforms raw hardware into a safe, efficient, and convenient computing environment by providing abstractions and managing resources.**
 
+# what did operating system bring to programming?
 
 Operating systems brought a **fundamental transformation to programming**. Before operating systems, programming meant controlling hardware directly. After operating systems, programming became the process of building software on top of **abstract services** provided by the OS.
 
@@ -1458,6 +1462,8 @@ Hardware
 ```
 
 Almost all modern programming — Java, Python, web development, databases, AI systems, cloud computing — depends on this layered idea introduced by operating systems.
+
+# how to learn operating system systematically?
 
 Learning operating systems systematically means learning **how a computer is transformed from raw hardware into a platform capable of running many programs safely and efficiently**.
 
