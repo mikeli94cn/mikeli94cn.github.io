@@ -1,0 +1,852 @@
+# How to Learn Distributed Systems Systematically
+
+Distributed systems are difficult because they combine many areas of computer science:
+
+* computer networks
+* operating systems
+* databases
+* algorithms
+* concurrency
+* software architecture
+* cloud computing
+
+A good learning path is to move from **fundamentals → concepts → algorithms → real systems → implementation**.
+
+---
+
+# Phase 0: Build the Foundation
+
+Before learning distributed systems, you should understand what a single computer does.
+
+## 1. Computer Architecture
+
+Learn:
+
+* CPU
+* memory hierarchy
+* cache
+* storage
+* interrupts
+* I/O
+
+Why?
+
+A distributed system is essentially:
+
+> many computers connected together.
+
+You need to understand one computer first.
+
+Recommended topics:
+
+```
+CPU
+ |
+Memory
+ |
+Bus
+ |
+Disk
+ |
+Operating System
+```
+
+---
+
+## 2. Operating Systems
+
+Learn:
+
+* processes
+* threads
+* scheduling
+* synchronization
+* virtual memory
+* file systems
+* system calls
+
+Important concepts:
+
+### Process communication
+
+Single machine:
+
+```
+Process A
+     |
+IPC
+     |
+Process B
+```
+
+Distributed system:
+
+```
+Machine A
+     |
+Network
+     |
+Machine B
+```
+
+Distributed communication is basically **IPC across machines**.
+
+---
+
+## 3. Computer Networks
+
+This is the most important prerequisite.
+
+Learn:
+
+### Network layers
+
+```
+Application
+     |
+Transport
+     |
+Network
+     |
+Link
+```
+
+Understand:
+
+* TCP/IP
+* UDP
+* HTTP
+* DNS
+* routing
+* sockets
+
+You should know:
+
+"What happens when I type a URL?"
+
+Example:
+
+```
+Browser
+
+ |
+DNS
+
+ |
+TCP connection
+
+ |
+HTTP request
+
+ |
+Server response
+```
+
+---
+
+# Phase 1: Understand Distributed System Fundamentals
+
+Now learn the basic ideas.
+
+---
+
+# 1. What Makes a System Distributed?
+
+Learn:
+
+* nodes
+* network communication
+* failures
+* latency
+* partial failure
+
+Important idea:
+
+A normal program:
+
+```
+Function call
+
+A() ---> B()
+```
+
+Distributed program:
+
+```
+Machine A
+
+A()
+ |
+ |
+Network
+ |
+ |
+B()
+Machine B
+```
+
+A network call is not the same as a local function call.
+
+---
+
+# 2. Communication Models
+
+Learn:
+
+## Request-response
+
+Example:
+
+HTTP:
+
+```
+Client
+
+   request
+
+Server
+
+   response
+```
+
+---
+
+## RPC
+
+Learn:
+
+* RPC concept
+* serialization
+* gRPC
+* REST
+
+Example:
+
+```
+call()
+
+becomes:
+
+send(message)
+receive(response)
+```
+
+---
+
+## Message-based communication
+
+Learn:
+
+* queues
+* events
+* asynchronous systems
+
+Examples:
+
+* Kafka
+* RabbitMQ
+
+---
+
+# 3. Time and Ordering
+
+One of the hardest concepts.
+
+Learn:
+
+## Physical clocks
+
+Problem:
+
+```
+Machine A:
+10:00:01
+
+Machine B:
+10:00:02
+```
+
+Are they synchronized?
+
+---
+
+## Logical clocks
+
+Learn:
+
+* Lamport clock
+* Vector clock
+
+Question:
+
+"Did event A happen before event B?"
+
+---
+
+# Phase 2: Distributed Data Systems
+
+Data management is the heart of distributed systems.
+
+---
+
+# 1. Data Partitioning
+
+Learn:
+
+Why split data?
+
+Example:
+
+One database:
+
+```
+1 billion users
+```
+
+Too large.
+
+Split:
+
+```
+Server A:
+users 1-100M
+
+Server B:
+users 101M-200M
+```
+
+Topics:
+
+* sharding
+* partition keys
+* consistent hashing
+
+---
+
+# 2. Replication
+
+Learn:
+
+Why copy data?
+
+Example:
+
+```
+Primary
+
+   |
+   +---- Replica 1
+   |
+   +---- Replica 2
+```
+
+Study:
+
+* primary-replica model
+* leader-follower replication
+* replication logs
+
+---
+
+# 3. Consistency Models
+
+Very important.
+
+Learn:
+
+## Strong consistency
+
+```
+Write
+
+all nodes updated
+
+Read
+```
+
+---
+
+## Eventual consistency
+
+```
+Write
+
+Node A updated
+
+later:
+
+Node B updated
+```
+
+Study:
+
+* linearizability
+* sequential consistency
+* eventual consistency
+
+---
+
+# 4. CAP Theorem
+
+Understand:
+
+```
+        CAP
+
+Consistency
+     |
+     |
+Availability ---- Partition tolerance
+```
+
+Learn:
+
+* why network failures matter
+* tradeoffs in database design
+
+---
+
+# Phase 3: Coordination Algorithms
+
+This is the theoretical core.
+
+---
+
+# 1. Consensus
+
+Question:
+
+> How can multiple computers agree?
+
+Learn:
+
+* Paxos
+* Raft
+* Byzantine agreement
+
+Example:
+
+```
+Server A: YES
+Server B: YES
+Server C: NO
+
+Decision:
+YES
+```
+
+---
+
+# 2. Leader Election
+
+Learn:
+
+How systems choose a coordinator.
+
+Example:
+
+```
+Server A
+Server B  ---> Leader
+Server C
+```
+
+Algorithms:
+
+* Bully algorithm
+* Raft election
+
+---
+
+# 3. Distributed Transactions
+
+Learn:
+
+How multiple systems update data safely.
+
+Example:
+
+Shopping:
+
+```
+Payment database
+
++
+
+Inventory database
+
++
+
+Order database
+```
+
+Need all succeed.
+
+Study:
+
+* ACID
+* Two-phase commit
+* Saga pattern
+
+---
+
+# Phase 4: Learn Real Distributed Systems
+
+Theory becomes clearer when you study real systems.
+
+---
+
+# 1. Distributed Databases
+
+Study:
+
+## Traditional databases
+
+Examples:
+
+* PostgreSQL replication
+* MySQL clustering
+
+Learn:
+
+* replication
+* transactions
+* consistency
+
+---
+
+## NoSQL databases
+
+Examples:
+
+* Cassandra
+* MongoDB
+* DynamoDB
+
+Learn:
+
+* partitioning
+* eventual consistency
+
+---
+
+# 2. Distributed Storage
+
+Study:
+
+## Google File System
+
+Concept:
+
+```
+Large file
+
+split into chunks
+
+stored across machines
+```
+
+Learn:
+
+* chunking
+* replication
+* metadata servers
+
+---
+
+# 3. Big Data Systems
+
+Learn:
+
+## MapReduce
+
+Idea:
+
+```
+Large problem
+
+    |
+
+Many computers solve pieces
+
+    |
+
+Combine results
+```
+
+Study:
+
+* Hadoop
+* Spark
+
+---
+
+# 4. Cloud-Native Distributed Systems
+
+Modern systems use:
+
+## Containers
+
+Learn:
+
+* Docker
+
+## Container orchestration
+
+Learn:
+
+* Kubernetes
+
+Concept:
+
+```
+Application
+
+ |
+Containers
+
+ |
+Many machines
+```
+
+---
+
+# Phase 5: Practice Building Distributed Systems
+
+Theory is not enough.
+
+Build small systems.
+
+---
+
+## Project 1: Simple Distributed Key-Value Store
+
+Build:
+
+```
+Client
+
+ |
+Server A
+ |
+Server B
+ |
+Server C
+```
+
+Features:
+
+* store(key,value)
+* get(key)
+* replication
+
+You learn:
+
+* networking
+* storage
+* consistency
+
+---
+
+## Project 2: Chat System
+
+Architecture:
+
+```
+User
+
+ |
+Server
+
+ |
+Message Queue
+
+ |
+Database
+```
+
+Learn:
+
+* real-time communication
+* message delivery
+
+---
+
+## Project 3: Distributed Cache
+
+Build:
+
+```
+Client
+
+ |
+Cache Nodes
+
+ |
+Database
+```
+
+Learn:
+
+* partitioning
+* eviction
+* consistency
+
+---
+
+# Phase 6: Read Classic Papers
+
+Distributed systems developed through research papers.
+
+Important papers:
+
+| Topic                    | Paper              |
+| ------------------------ | ------------------ |
+| Distributed file systems | Google File System |
+| Big data processing      | MapReduce          |
+| Large-scale database     | Dynamo             |
+| Consensus                | Paxos Made Simple  |
+| Consensus implementation | Raft               |
+| Data storage             | Spanner            |
+
+---
+
+# Phase 7: Learn Modern Architecture
+
+Study:
+
+## Microservices
+
+Instead of:
+
+```
+One giant application
+```
+
+Use:
+
+```
+User Service
+
+Order Service
+
+Payment Service
+
+Inventory Service
+```
+
+---
+
+## Event-driven architecture
+
+```
+Service A
+
+ |
+Event
+
+ |
+Message Queue
+
+ |
+Service B
+```
+
+---
+
+## Service discovery
+
+Learn:
+
+* DNS-based discovery
+* Kubernetes services
+
+---
+
+# Recommended Learning Order
+
+A practical sequence:
+
+```
+1. Computer Architecture
+          |
+2. Operating Systems
+          |
+3. Computer Networks
+          |
+4. Concurrency Programming
+          |
+5. Distributed System Basics
+          |
+6. RPC and Messaging
+          |
+7. Distributed Storage
+          |
+8. Replication
+          |
+9. Consistency Models
+          |
+10. Consensus Algorithms
+          |
+11. Distributed Databases
+          |
+12. Cloud Systems
+          |
+13. Build Distributed Applications
+```
+
+---
+
+# Recommended Books
+
+## Beginner
+
+### Designing Data-Intensive Applications
+
+Probably the best modern introduction.
+
+Covers:
+
+* databases
+* replication
+* consistency
+* distributed architecture
+
+## Academic
+
+### Distributed Systems
+
+Good for:
+
+* theory
+* algorithms
+* formal models
+
+## Advanced
+
+### Distributed Systems: Principles and Paradigms
+
+Covers:
+
+* architectures
+* communication
+* security
+* fault tolerance
+
+---
+
+# The Mental Model to Remember
+
+A distributed system is built by answering five questions:
+
+| Question                     | Topic                     |
+| ---------------------------- | ------------------------- |
+| How do computers talk?       | Networking, RPC           |
+| How do they share data?      | Databases, storage        |
+| How do they agree?           | Consensus                 |
+| How do they survive failure? | Fault tolerance           |
+| How do they scale?           | Partitioning, replication |
+
+The ultimate goal of learning distributed systems is to understand:
+
+> **How to design software that continues working when computers, networks, and data become large, complex, and unreliable.**
