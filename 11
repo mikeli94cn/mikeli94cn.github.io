@@ -1,0 +1,40 @@
+A **compiler** is a software program that translates code written in a high-level programming language (such as C, C++, or Java) into machine code or another lower-level language that a computer can execute.
+
+### How a compiler works
+
+1. **Reads the source code** written by the programmer.
+2. **Checks for errors** such as syntax mistakes.
+3. **Optimizes the code** to improve performance (optional).
+4. **Generates machine code** or an executable program.
+
+### Example
+
+High-level code (C):
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!");
+    return 0;
+}
+```
+
+The compiler converts this into machine code that the computer's processor can understand and run.
+
+### Advantages of a compiler
+
+* Produces fast-running programs.
+* Detects many errors before execution.
+* Optimizes code for better performance.
+
+### Compiler vs. Interpreter
+
+| Compiler                                       | Interpreter                                    |
+| ---------------------------------------------- | ---------------------------------------------- |
+| Translates the entire program before execution | Translates and executes one line at a time     |
+| Generates an executable file                   | Does not usually generate an executable file   |
+| Execution is faster                            | Execution is generally slower                  |
+| Example: GCC, Clang                            | Example: Python interpreter, JavaScript engine |
+
+In simple terms, **a compiler is like a translator that converts human-readable programming code into a language that computers can understand and execute.**
