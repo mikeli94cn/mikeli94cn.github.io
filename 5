@@ -1,0 +1,730 @@
+Learning operating systems systematically means learning **how a computer is transformed from raw hardware into a platform capable of running many programs safely and efficiently**.
+
+A good learning path should follow the historical and conceptual evolution of operating systems:
+
+```
+Computer Hardware
+        ↓
+Machine Execution
+        ↓
+Operating System Concepts
+        ↓
+Kernel Design
+        ↓
+System Programming
+        ↓
+Advanced OS Topics
+```
+
+Here is a structured roadmap.
+
+---
+
+# Stage 1: Build the Hardware Foundation
+
+Before learning OS, understand the machine that the OS manages.
+
+## Learn:
+
+### 1. Computer organization
+
+Understand:
+
+* CPU
+* Registers
+* Instruction execution
+* Memory hierarchy
+* I/O devices
+* Interrupts
+
+Key questions:
+
+* How does a CPU execute instructions?
+* How does memory work?
+* Why are registers needed?
+* Why are interrupts necessary?
+
+Recommended book:
+
+* Computer Organization and Design
+
+---
+
+### 2. Assembly language basics
+
+Learn:
+
+* Instructions
+* Registers
+* Stack
+* Function calls
+* Memory addressing
+
+Example:
+
+A C function:
+
+```c
+int add(int a, int b)
+{
+    return a + b;
+}
+```
+
+becomes machine instructions:
+
+```
+LOAD a
+LOAD b
+ADD
+RETURN
+```
+
+You need this because the OS sits directly above hardware.
+
+---
+
+# Stage 2: Learn Basic OS Concepts
+
+Now learn the main ideas of operating systems.
+
+The four fundamental OS responsibilities:
+
+```
++----------------+
+| Process        |
+| Memory         |
+| File System    |
+| Device Control |
++----------------+
+```
+
+---
+
+## 1. Processes
+
+Learn:
+
+* Program vs process
+* Process states
+* Process creation
+* Context switching
+
+Important concepts:
+
+```
+Running
+   |
+Waiting
+   |
+Ready
+```
+
+Understand:
+
+* PCB (Process Control Block)
+* Scheduling
+* System calls
+
+Programming practice:
+
+Use C:
+
+```c
+fork();
+exec();
+wait();
+```
+
+on Linux.
+
+---
+
+## 2. Threads
+
+Learn:
+
+Why one process needs multiple execution paths.
+
+Example:
+
+Browser:
+
+```
+Chrome Process
+
+ ├── UI Thread
+ ├── Network Thread
+ ├── Rendering Thread
+ └── JavaScript Thread
+```
+
+Learn:
+
+* Thread creation
+* Thread scheduling
+* Thread synchronization
+
+Programming:
+
+```c
+pthread_create();
+```
+
+---
+
+## 3. CPU Scheduling
+
+Learn how OS decides:
+
+"Which process runs next?"
+
+Algorithms:
+
+### First Come First Serve
+
+```
+A → B → C
+```
+
+### Shortest Job First
+
+```
+Short tasks first
+```
+
+### Round Robin
+
+```
+A
+B
+C
+A
+B
+C
+```
+
+Understand:
+
+* Response time
+* Throughput
+* Fairness
+
+---
+
+# Stage 3: Memory Management
+
+Memory is one of the deepest OS topics.
+
+Learn:
+
+## 1. Physical memory
+
+Actual RAM:
+
+```
+0x0000
+0x0001
+0x0002
+...
+```
+
+---
+
+## 2. Virtual memory
+
+The key OS abstraction:
+
+Programs see:
+
+```
+Virtual Address Space
+```
+
+OS manages:
+
+```
+Virtual Address
+        ↓
+Physical Memory
+```
+
+Learn:
+
+* Address translation
+* Paging
+* Page tables
+* TLB
+* Page faults
+
+---
+
+## 3. Memory allocation
+
+Understand:
+
+* Stack
+* Heap
+* Dynamic allocation
+
+Example:
+
+C:
+
+```c
+malloc();
+free();
+```
+
+---
+
+# Stage 4: File Systems
+
+Learn how the OS organizes storage.
+
+Start with:
+
+```
+Disk
+
+↓
+
+Blocks
+
+↓
+
+File System
+
+↓
+
+Files/Folders
+```
+
+Learn:
+
+* Files
+* Directories
+* Inodes
+* Journaling
+* Permissions
+
+Study:
+
+Linux:
+
+```bash
+ls
+chmod
+mount
+```
+
+---
+
+# Stage 5: Device Management
+
+Learn how software communicates with hardware.
+
+Concept:
+
+```
+Application
+
+    ↓
+
+Device API
+
+    ↓
+
+Driver
+
+    ↓
+
+Hardware
+```
+
+Learn:
+
+* Device drivers
+* Interrupts
+* DMA
+* I/O scheduling
+
+---
+
+# Stage 6: System Calls
+
+System calls are the bridge between applications and the kernel.
+
+Example:
+
+Application:
+
+```c
+open("file.txt");
+```
+
+Actually:
+
+```
+Application
+
+    ↓
+
+System call
+
+    ↓
+
+Kernel
+
+    ↓
+
+Disk driver
+
+    ↓
+
+Disk
+```
+
+Learn:
+
+Linux system calls:
+
+```
+open()
+read()
+write()
+fork()
+exec()
+socket()
+```
+
+---
+
+# Stage 7: Synchronization and Concurrency
+
+Modern computers run many things simultaneously.
+
+Learn:
+
+## Race condition
+
+Example:
+
+Two threads:
+
+```
+Thread A:
+x = x + 1
+
+Thread B:
+x = x + 1
+```
+
+Possible result:
+
+```
+x increases only once
+```
+
+Learn:
+
+* Mutex
+* Semaphore
+* Monitor
+* Lock
+* Deadlock
+
+---
+
+# Stage 8: Networking and Distributed Systems
+
+Modern OSs are network-aware.
+
+Learn:
+
+* Socket programming
+* TCP/IP basics
+* Network drivers
+* Distributed computing concepts
+
+Example:
+
+A web server:
+
+```
+Browser
+
+ ↓
+
+Network
+
+ ↓
+
+OS Socket
+
+ ↓
+
+Server Process
+```
+
+---
+
+# Stage 9: Study Real Operating Systems
+
+Theory becomes clearer when reading real systems.
+
+Recommended order:
+
+## 1. Linux
+
+Best learning platform.
+
+Learn:
+
+* Kernel structure
+* Process management
+* File systems
+
+Source:
+
+Linux kernel
+
+---
+
+## 2. xv6
+
+A small teaching OS.
+
+It contains:
+
+* Process management
+* Memory management
+* File system
+
+Based on Unix concepts.
+
+Excellent for learning OS internals.
+
+---
+
+## 3. Modern systems
+
+Study:
+
+* Windows architecture
+* macOS architecture
+* Android architecture
+
+---
+
+# Stage 10: Practice by Building
+
+The best way to learn OS is to implement small systems.
+
+## Project 1: Write a shell
+
+Example:
+
+```bash
+myshell>
+
+ls
+cd
+cat
+```
+
+You learn:
+
+* Processes
+* System calls
+
+---
+
+## Project 2: Build a memory allocator
+
+Implement:
+
+```c
+malloc()
+free()
+```
+
+You learn:
+
+* Heap management
+* Memory layout
+
+---
+
+## Project 3: Build a small file system
+
+Implement:
+
+* Files
+* Directories
+* Blocks
+
+---
+
+## Project 4: Modify xv6
+
+Examples:
+
+Add:
+
+* New system call
+* New scheduler
+* New file operation
+
+---
+
+# Recommended Books
+
+## Beginner
+
+Operating System Concepts
+
+Good for:
+
+* Overall understanding
+* University courses
+
+---
+
+## Deep Understanding
+
+Operating Systems: Three Easy Pieces
+
+Excellent because it explains:
+
+* Virtualization
+* Concurrency
+* Persistence
+
+Free online.
+
+---
+
+## Implementation
+
+The Design and Implementation of the FreeBSD Operating System
+
+Good for understanding real systems.
+
+---
+
+# A Practical 6-Month Learning Plan
+
+## Month 1
+
+Learn:
+
+* Computer architecture
+* Assembly basics
+* Linux command line
+
+---
+
+## Month 2
+
+Learn:
+
+* Processes
+* Threads
+* Scheduling
+
+Practice:
+
+* Write C programs using fork/thread APIs
+
+---
+
+## Month 3
+
+Learn:
+
+* Memory management
+* Virtual memory
+
+Practice:
+
+* Write memory allocator
+
+---
+
+## Month 4
+
+Learn:
+
+* File systems
+* Device management
+* System calls
+
+Practice:
+
+* Write a simple shell
+
+---
+
+## Month 5
+
+Learn:
+
+* Synchronization
+* Deadlocks
+* Networking
+
+Practice:
+
+* Multithreaded programs
+
+---
+
+## Month 6
+
+Learn:
+
+* xv6 source code
+* Kernel modification
+
+Practice:
+
+* Add OS features
+
+---
+
+# The Big Picture
+
+The whole OS field can be summarized as four questions:
+
+### 1. How do we run programs?
+
+→ Processes and scheduling
+
+### 2. How do we share memory?
+
+→ Virtual memory
+
+### 3. How do we store information?
+
+→ File systems
+
+### 4. How do we control hardware safely?
+
+→ Kernel and drivers
+
+If you understand these four ideas deeply, you understand the foundation of operating systems.
+
+A strong OS learner eventually moves from:
+
+```
+"I use computers"
+        ↓
+"I write programs"
+        ↓
+"I understand how programs run"
+        ↓
+"I understand how computers are built"
+```
+
+That transition is the real goal of studying operating systems.
