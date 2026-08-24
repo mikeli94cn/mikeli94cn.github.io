@@ -660,8 +660,9 @@ The relationship is:
 A useful mental model:
 
 > **Storage remembers. Memory thinks. CPU acts.**
->
-> # History of Computer Memory
+
+
+# History of Computer Memory
 
 The history of memory is the story of how computers learned to **store information temporarily in a fast, directly accessible form for computation**.
 
@@ -1289,6 +1290,7 @@ Quantum-scale physical states
 ```
 
 The history of memory is essentially the history of making **the physical representation of information faster, smaller, cheaper, and closer to the CPU.**
+
 
 # The Underlying Principle of Memory
 
