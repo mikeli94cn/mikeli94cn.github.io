@@ -1,0 +1,812 @@
+# How to Learn File Systems Systematically
+
+To learn file systems deeply, you should study them from **hardware → operating system → file system design → implementation → advanced distributed storage**.
+
+A good learning path is:
+
+```text
+Storage Hardware
+        ↓
+Operating System I/O
+        ↓
+Basic File System Concepts
+        ↓
+Classic File Systems
+        ↓
+File System Implementation
+        ↓
+Modern File Systems
+        ↓
+Distributed Storage
+```
+
+---
+
+# Stage 1: Understand the Foundation — Storage Hardware
+
+Before learning file systems, understand what they manage.
+
+## Learn:
+
+### 1. Hard Disk Drive (HDD)
+
+Understand:
+
+* Platter
+* Track
+* Sector
+* Cylinder
+* Seek time
+* Rotational latency
+
+Example:
+
+```
+Application
+     |
+     v
+File system request
+
+"Read file.txt"
+
+     |
+     v
+
+Disk:
+
+Move head
+Find sector
+Read bytes
+```
+
+Key idea:
+
+> A disk is just a large collection of addressable blocks.
+
+---
+
+### 2. SSD Storage
+
+Learn:
+
+* Flash memory
+* Pages
+* Erase blocks
+* Wear leveling
+* Garbage collection
+
+Why?
+
+Modern file systems must understand SSD behavior.
+
+---
+
+### Recommended topics
+
+* Storage hierarchy
+* HDD vs SSD
+* Block devices
+* DMA (Direct Memory Access)
+
+---
+
+# Stage 2: Learn Operating System I/O
+
+A file system is part of the OS.
+
+Understand:
+
+```
+Application
+
+   |
+   v
+
+System Calls
+
+(open/read/write)
+
+   |
+   v
+
+Kernel
+
+   |
+   v
+
+File System
+
+   |
+   v
+
+Device Driver
+
+   |
+   v
+
+Hardware
+```
+
+Study:
+
+## System Calls
+
+Especially:
+
+```c
+open()
+read()
+write()
+close()
+stat()
+mkdir()
+unlink()
+```
+
+Understand:
+
+* User mode
+* Kernel mode
+* System call transition
+
+---
+
+## Virtual File System (VFS)
+
+Learn how operating systems support multiple file systems.
+
+Example Linux:
+
+```
+Application
+
+     |
+     v
+
+     VFS
+
+     |
+ ----------------
+ |              |
+ext4           NFS
+ |              |
+Disk          Network
+```
+
+Important idea:
+
+> Programs use one interface; the kernel supports many implementations.
+
+---
+
+# Stage 3: Learn Basic File System Concepts
+
+Now study the core ideas.
+
+---
+
+## 1. Files and Metadata
+
+Understand:
+
+A file has:
+
+```
+Data
+
++
+
+Metadata
+```
+
+Metadata:
+
+* Name
+* Size
+* Owner
+* Permissions
+* Timestamps
+* Location
+
+---
+
+## 2. Directories
+
+Learn:
+
+* Directory entries
+* Paths
+* Absolute vs relative paths
+
+Example:
+
+```
+/
+├── home
+│   └── mike
+│       └── a.txt
+```
+
+Understand:
+
+```
+filename → metadata → data blocks
+```
+
+---
+
+## 3. Disk Allocation
+
+Study:
+
+### Contiguous allocation
+
+```
+File:
+
+100
+101
+102
+103
+```
+
+Advantages:
+
+* Fast
+
+Problems:
+
+* Fragmentation
+
+---
+
+### Linked allocation
+
+```
+100 → 500 → 700
+```
+
+Advantages:
+
+* Easy growth
+
+Problems:
+
+* Slow random access
+
+---
+
+### Indexed allocation
+
+```
+inode
+
+ |
+ +-- block 100
+ +-- block 500
+ +-- block 700
+```
+
+Used by UNIX-like systems.
+
+---
+
+# Stage 4: Study UNIX File System (Very Important)
+
+UNIX file systems are the foundation of modern systems.
+
+Learn:
+
+## Inodes
+
+Understand:
+
+```
+filename
+
+   |
+   v
+
+inode
+
+   |
+   v
+
+data blocks
+```
+
+Learn:
+
+* inode structure
+* inode table
+* inode number
+
+---
+
+## Links
+
+Study:
+
+### Hard link
+
+```
+file1
+  |
+  +---- inode 100
+  |
+file2
+```
+
+Two names, one file.
+
+### Symbolic link
+
+```
+link
+
+  |
+  v
+
+another filename
+```
+
+---
+
+## Permissions
+
+Learn:
+
+```
+rwxr-xr-x
+```
+
+Meaning:
+
+```
+owner
+group
+others
+```
+
+---
+
+# Stage 5: Learn Real File Systems
+
+Now study actual designs.
+
+---
+
+# 1. FAT
+
+Good for learning basic ideas.
+
+Learn:
+
+* File Allocation Table
+* Cluster management
+* Directory entries
+
+Architecture:
+
+```
+Directory
+
+   |
+
+FAT table
+
+   |
+
+Data blocks
+```
+
+---
+
+# 2. ext2/ext3/ext4
+
+The classic Linux file system.
+
+Study:
+
+```
+ext4
+
+Superblock
+
+Block groups
+
+Inodes
+
+Data blocks
+```
+
+Important concepts:
+
+* Journaling
+* Extents
+* Block allocation
+
+---
+
+# 3. NTFS
+
+Learn:
+
+* Master File Table (MFT)
+* Journaling
+* Security descriptors
+* Attributes
+
+---
+
+# 4. APFS / Btrfs
+
+Learn modern ideas:
+
+* Copy-on-write
+* Snapshots
+* Checksums
+
+---
+
+# Stage 6: Learn File System Implementation
+
+This is where you understand how file systems are built.
+
+Implement a simple file system.
+
+A good project:
+
+Create a virtual disk:
+
+```
+disk.img
+```
+
+Example:
+
+```
++-------------+
+| Superblock  |
++-------------+
+| Bitmap      |
++-------------+
+| Inodes      |
++-------------+
+| Data blocks |
++-------------+
+```
+
+Implement:
+
+```
+create()
+open()
+read()
+write()
+delete()
+mkdir()
+```
+
+---
+
+You will learn:
+
+## Superblock
+
+Stores:
+
+```
+File system information
+```
+
+---
+
+## Bitmap
+
+Tracks:
+
+```
+Used blocks
+Free blocks
+```
+
+---
+
+## Inode
+
+Stores:
+
+```
+File metadata
+Data pointers
+```
+
+---
+
+## Directory
+
+Maps:
+
+```
+filename → inode
+```
+
+---
+
+# Stage 7: Learn Advanced File System Concepts
+
+After the basics:
+
+---
+
+## Journaling
+
+Learn:
+
+* Write-ahead logging
+* Recovery
+* Consistency
+
+Example:
+
+```
+Journal
+
+"I will update inode"
+
+        ↓
+
+Modify inode
+
+        ↓
+
+Commit
+```
+
+---
+
+## Copy-on-write
+
+Used in:
+
+* APFS
+* Btrfs
+* ZFS
+
+Concept:
+
+Instead of:
+
+```
+Modify old block
+```
+
+do:
+
+```
+Create new block
+       |
+       v
+Update pointer
+```
+
+---
+
+## RAID
+
+Learn:
+
+* RAID 0
+* RAID 1
+* RAID 5
+* RAID 6
+
+Why?
+
+File systems often work above RAID.
+
+---
+
+# Stage 8: Distributed File Systems
+
+Modern systems store huge amounts of data.
+
+Learn:
+
+## Network File System (NFS)
+
+```
+Client
+
+ |
+
+Network
+
+ |
+
+Server disk
+```
+
+---
+
+## Google File System
+
+Concepts:
+
+* Large files
+* Data replication
+* Fault tolerance
+
+---
+
+## Object Storage
+
+Examples:
+
+* Amazon S3 style systems
+
+Different from traditional files:
+
+```
+Object
+
+=
+Data
++
+Metadata
++
+Identifier
+```
+
+---
+
+# Stage 9: Read Source Code
+
+Reading real implementations is the final step.
+
+Recommended:
+
+## Linux
+
+Study:
+
+```
+fs/ext4/
+```
+
+Learn:
+
+* inode operations
+* block allocation
+* journaling
+
+---
+
+## Simple educational systems
+
+Study:
+
+### xv6 file system
+
+Very good for learning.
+
+Architecture:
+
+```
+User program
+
+    |
+
+System call
+
+    |
+
+File system
+
+    |
+
+Disk blocks
+```
+
+---
+
+# Recommended Learning Order
+
+A practical sequence:
+
+```
+1. Computer storage basics
+        |
+2. OS system calls
+        |
+3. Files/directories/metadata
+        |
+4. Disk allocation methods
+        |
+5. UNIX inode design
+        |
+6. FAT
+        |
+7. ext4
+        |
+8. NTFS
+        |
+9. Journaling
+        |
+10. Copy-on-write
+        |
+11. Distributed file systems
+        |
+12. Implement your own mini file system
+```
+
+---
+
+# Good Books
+
+## Beginner → Intermediate
+
+**Operating System Concepts**
+(usually called "The Dinosaur Book")
+
+Focus on:
+
+* File system interface
+* File system implementation
+
+## Intermediate → Advanced
+
+**Operating Systems: Three Easy Pieces (OSTEP)**
+
+Especially chapters:
+
+* File Systems
+* File System Implementation
+* Crash Consistency
+
+## Advanced
+
+**The Design and Implementation of the FreeBSD Operating System**
+
+Good for real-world design.
+
+---
+
+# The Most Important Mental Model
+
+Do not think:
+
+> "A file system is just folders and files."
+
+Think:
+
+```
+Raw storage blocks
+
+        ↓
+
+Metadata structures
+
+        ↓
+
+Mapping algorithms
+
+        ↓
+
+File abstraction
+
+        ↓
+
+Reliable storage service
+```
+
+The deepest understanding comes when you can answer:
+
+1. **How does `open("a.txt")` find the data?**
+2. **How does the system know where free space exists?**
+3. **How does it recover after a crash?**
+4. **How can millions of files be managed efficiently?**
+5. **How does the design change for SSDs and distributed storage?**
+
+Once you can answer these questions, you understand file systems at an operating-system level.
