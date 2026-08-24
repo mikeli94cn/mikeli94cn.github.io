@@ -1,3 +1,4 @@
+with google
 ### The cycle of information involves four fundamental, interconnected pillars: 
 
 **storage, processing, communication, and expression**
