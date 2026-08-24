@@ -1,4 +1,4 @@
-# with chatgpt
+with chatgpt
 # What Is Storage?
 
 In computing, **storage** is the mechanism for **keeping digital information so that it remains available after the program stops running or the computer loses power**.
