@@ -1,0 +1,66 @@
+A **distributed system** is a collection of multiple computers (called **nodes**) that work together over a network to appear as a single system to users.
+
+Instead of one computer handling all tasks, the work is divided among several computers.
+
+### Simple example
+
+Imagine an online shopping website like Amazon:
+
+* One server handles user login.
+* Another server manages product catalogs.
+* Another processes payments.
+* Another tracks orders.
+
+Although many computers are involved, you experience it as one website. This is a distributed system.
+
+### Key characteristics
+
+* **Multiple computers:** Several machines work together.
+* **Communication:** They communicate over a network.
+* **Resource sharing:** Data and services are shared across machines.
+* **Scalability:** More computers can be added to handle more users.
+* **Fault tolerance:** If one computer fails, others can continue providing the service.
+
+### Advantages
+
+* High availability (the system keeps running even if some machines fail)
+* Better performance by distributing work
+* Easy to scale by adding more servers
+* Improved reliability
+
+### Disadvantages
+
+* More complex to design and manage
+* Network failures can affect communication
+* Data synchronization can be difficult
+* Debugging is harder because many machines are involved
+
+### Real-world examples
+
+* Google Search
+* Facebook
+* Netflix
+* WhatsApp
+* Cloud services such as AWS, Microsoft Azure, and Google Cloud
+
+### Simple diagram
+
+```text
+          User
+            |
+     +--------------+
+     | Load Balancer|
+     +--------------+
+       /     |      \
+      /      |       \
++---------+ +---------+ +---------+
+| Server1 | | Server2 | | Server3 |
++---------+ +---------+ +---------+
+      \       |        /
+       \      |       /
+      Shared Database/Storage
+```
+
+### In one sentence
+
+A **distributed system** is a group of networked computers that coordinate their work to provide a single, reliable, and scalable service to users.
