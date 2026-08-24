@@ -1,0 +1,628 @@
+# History of Computer Memory
+
+The history of memory is the story of how computers learned to **store information temporarily in a fast, directly accessible form for computation**.
+
+The main evolution is:
+
+```text
+Mechanical Memory
+        ↓
+Vacuum Tube Memory
+        ↓
+Magnetic Memory
+        ↓
+Semiconductor Memory
+        ↓
+DRAM / SRAM
+        ↓
+Modern Memory Hierarchies
+        ↓
+New Persistent Memories
+```
+
+The central problem has always been:
+
+> **How can we store bits close enough to the CPU, fast enough for computation, and cheaply enough for practical computers?**
+
+---
+
+# 1. Before Electronic Computers: Mechanical Memory (Before 1940s)
+
+Early machines used mechanical methods to represent information.
+
+Examples:
+
+* Abacus
+* Mechanical calculators
+* Gear-based machines
+
+A value was represented by a physical position:
+
+```text
+Gear position A → 0
+
+Gear position B → 1
+```
+
+Advantages:
+
+* Simple
+* Reliable
+
+Problems:
+
+* Very slow
+* Difficult to scale
+
+Mechanical systems could store information, but not at the speed required for modern computation.
+
+---
+
+# 2. Early Electronic Computers: No Real Memory (1940s)
+
+The first electronic computers did not have modern memory.
+
+Example:
+
+ENIAC
+
+Data was stored through:
+
+* Switch settings
+* Plugboard connections
+* Punch cards
+
+Programming was almost physical configuration.
+
+The problem:
+
+> The computer could calculate, but changing programs and data was extremely difficult.
+
+A new idea was needed:
+
+**stored-program computers.**
+
+---
+
+# 3. Delay-Line Memory (1940s–1950s)
+
+One of the earliest true computer memories was **delay-line memory**.
+
+Used in:
+
+EDSAC
+
+The idea:
+
+Convert electrical signals into waves traveling through a medium.
+
+Example:
+
+```text
+Signal enters
+
+↓
+
+Tube or wire
+
+↓
+
+Signal delayed
+
+↓
+
+Read back later
+```
+
+The information existed as a traveling wave.
+
+Common media:
+
+* Mercury tubes
+* Acoustic waves
+
+Advantages:
+
+* Allowed stored programs
+
+Problems:
+
+* Slow
+* Sequential access
+
+You could not instantly access any location.
+
+---
+
+# 4. Williams Tube Memory (1946–1950s)
+
+Another early memory technology used cathode-ray tubes.
+
+The idea:
+
+A computer monitor-like tube stored electrical charges.
+
+A bit:
+
+```text
+Electric charge present → 1
+
+No charge → 0
+```
+
+Advantages:
+
+* Faster than delay lines
+* Random access
+
+Problems:
+
+* Unreliable
+* Required constant refreshing
+
+---
+
+# 5. Magnetic Core Memory (1950s–1970s)
+
+Magnetic core memory was one of the most important developments.
+
+It became the dominant main memory technology for decades.
+
+A core was a tiny magnetic ring:
+
+```text
+      ○
+```
+
+Each core stored one bit.
+
+The magnetic direction represented:
+
+```text
+Direction A → 0
+
+Direction B → 1
+```
+
+A memory array:
+
+```text
+○ ○ ○ ○
+
+○ ○ ○ ○
+
+○ ○ ○ ○
+```
+
+Advantages:
+
+* Reliable
+* Fast
+* Non-volatile (kept data briefly without power)
+
+Used in:
+
+* Mainframe computers
+* Space computers
+
+Example:
+
+The Apollo Guidance Computer used core memory.
+
+---
+
+# 6. Semiconductor Memory Begins (1960s)
+
+The invention of integrated circuits transformed memory.
+
+Instead of large magnetic components:
+
+```text
+Many physical parts
+        ↓
+Tiny silicon circuits
+```
+
+The advantages:
+
+* Smaller
+* Faster
+* Cheaper
+* More reliable
+
+This began the semiconductor memory era.
+
+---
+
+# 7. SRAM (1960s–Today)
+
+**Static RAM (SRAM)** was one of the first semiconductor memories.
+
+A bit is stored using transistor circuits.
+
+Concept:
+
+```text
+Transistor circuit
+
+Stable state A → 0
+
+Stable state B → 1
+```
+
+Advantages:
+
+* Extremely fast
+* No refresh required
+
+Disadvantages:
+
+* Expensive
+* Large size
+
+Today SRAM is mainly used for:
+
+* CPU caches
+
+Example:
+
+```text
+CPU
+
+L1 Cache → SRAM
+L2 Cache → SRAM
+```
+
+---
+
+# 8. DRAM (1960s–Today)
+
+**Dynamic RAM (DRAM)** became the dominant main memory.
+
+A DRAM cell stores a bit using:
+
+* One transistor
+* One capacitor
+
+Concept:
+
+```text
+Capacitor charged     → 1
+
+Capacitor empty       → 0
+```
+
+Structure:
+
+```text
+Memory chip
+
++---+---+---+
+| 1 | 0 | 1 |
++---+---+---+
+```
+
+Advantages:
+
+* Very high density
+* Cheap
+
+Disadvantages:
+
+* Must be refreshed
+
+Why?
+
+Because electrical charge leaks away:
+
+```text
+Charge
+
+100%
+ |
+ |
+ |
+0%
+
+(time passes)
+```
+
+So the memory controller periodically refreshes it.
+
+---
+
+# 9. The Rise of Modern RAM (1980s–Today)
+
+As semiconductor manufacturing improved, DRAM became smaller and faster.
+
+Generations:
+
+```text
+SDRAM
+ ↓
+DDR
+ ↓
+DDR2
+ ↓
+DDR3
+ ↓
+DDR4
+ ↓
+DDR5
+```
+
+Each generation improved:
+
+* Speed
+* Bandwidth
+* Energy efficiency
+
+Modern computers commonly use:
+
+* DDR4
+* DDR5
+
+---
+
+# 10. Virtual Memory Era (1960s–Today)
+
+As programs became larger, physical RAM was not enough.
+
+Operating systems introduced:
+
+**Virtual memory**
+
+The idea:
+
+A program sees:
+
+```text
+Large continuous memory
+```
+
+but physically:
+
+```text
+Some data in RAM
+
+Some data on storage
+```
+
+Architecture:
+
+```text
+Program
+
+Virtual Address
+
+        ↓
+
+MMU
+
+        ↓
+
+RAM
+
+        ↓
+
+SSD (if needed)
+```
+
+This allowed:
+
+* Larger programs
+* Multiple programs running simultaneously
+
+---
+
+# 11. Cache Memory and Memory Hierarchy (1970s–Today)
+
+CPU speed increased much faster than RAM speed.
+
+A problem appeared:
+
+```text
+CPU:
+Very fast
+
+RAM:
+Too slow
+```
+
+Solution:
+
+Add layers of memory:
+
+```text
+Fastest
+
+CPU Registers
+     |
+CPU Cache
+     |
+RAM
+     |
+SSD
+     |
+HDD
+
+Slowest
+```
+
+Modern processors use:
+
+* L1 cache
+* L2 cache
+* L3 cache
+
+---
+
+# 12. Flash Memory and Non-Volatile Memory (1980s–Today)
+
+Although mainly used for storage, flash memory is an important memory technology.
+
+Flash stores bits using trapped electrical charge.
+
+Example:
+
+```text
+Floating gate transistor
+
+Charge exists → data state
+```
+
+Used in:
+
+* SSDs
+* USB drives
+* Smartphones
+
+Advantages:
+
+* Non-volatile
+* Small
+* Low power
+
+---
+
+# 13. Modern Memory Technologies
+
+Today researchers are exploring alternatives to traditional RAM.
+
+---
+
+## 13.1 Persistent Memory
+
+Goal:
+
+Combine:
+
+RAM speed
+
+*
+
+Storage persistence
+
+Examples:
+
+* Intel Optane (historical example)
+* Emerging non-volatile memories
+
+Idea:
+
+```text
+Traditional:
+
+RAM → fast but temporary
+
+SSD → permanent but slower
+
+
+Future:
+
+Fast + permanent
+```
+
+---
+
+## 13.2 3D Memory
+
+Instead of making chips only wider:
+
+```text
+2D:
+
+□□□□
+```
+
+build layers:
+
+```text
+3D:
+
+□□□□
+□□□□
+□□□□
+```
+
+Benefits:
+
+* Higher density
+* More capacity
+
+---
+
+# Memory Technology Timeline
+
+| Period      | Technology                 | Importance              |
+| ----------- | -------------------------- | ----------------------- |
+| Before 1940 | Mechanical storage         | Physical representation |
+| 1940s       | Delay-line memory          | First electronic memory |
+| 1940s       | Williams tube              | Early random access     |
+| 1950s       | Magnetic core              | Main memory revolution  |
+| 1960s       | Semiconductor memory       | Modern era begins       |
+| 1960s       | SRAM                       | Fast cache memory       |
+| 1970s       | DRAM                       | Main memory standard    |
+| 1980s       | Modern DRAM                | Personal computers      |
+| 1990s       | Cache hierarchy            | CPU performance         |
+| 2000s       | DDR memory                 | High bandwidth          |
+| 2010s       | 3D memory                  | Higher density          |
+| Today       | Persistent memory research | New memory models       |
+
+---
+
+# The Deep Principle Behind Memory Evolution
+
+Memory evolution is driven by three competing goals:
+
+```text
+                Speed
+                  ↑
+
+                  |
+                  |
+Cost  ←───────────┼───────────→ Capacity
+
+                  |
+                  ↓
+
+              Persistence
+```
+
+No single technology can maximize everything.
+
+Therefore computers use layers:
+
+```text
+CPU Registers
+        ↓
+Cache
+        ↓
+RAM
+        ↓
+Storage
+```
+
+---
+
+# The Fundamental Idea
+
+All memory technologies solve the same problem:
+
+> **How can we represent information as physical states that can be quickly created, detected, and maintained?**
+
+The evolution is:
+
+```text
+Mechanical position
+        ↓
+Electrical charge
+        ↓
+Magnetic direction
+        ↓
+Transistor state
+        ↓
+Quantum-scale physical states
+```
+
+The history of memory is essentially the history of making **the physical representation of information faster, smaller, cheaper, and closer to the CPU.**
