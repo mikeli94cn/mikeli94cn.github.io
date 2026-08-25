@@ -1,3 +1,4 @@
+with chatgpt
 # What is Event Programming?
 
 **Event programming** (also called **event-driven programming**) is a programming paradigm where the flow of a program is determined by **events** rather than by a fixed sequence of instructions.
