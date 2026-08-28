@@ -605,8 +605,8 @@ last my classification
 |---|---|---|
 |1945-1955|hardware|machine code, assembly|
 |1955-1970|mainframe|fortran, cobol|
-|1970-1985|unix|c|
-|1985-1995|gui programming|c++| 
+|1970-1985|unix, pc|c, basic|
+|1985-1995|gui programming, network programming|c++, perl| 
 |1995-2010|web programming|java, javascript|
 |2010-2020|cloud|JS/TS|
 |2020-future|ai|python|
