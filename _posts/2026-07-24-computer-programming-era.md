@@ -597,3 +597,16 @@ If I had to express your whole theory in one sentence:
 > **The history of programming can be viewed as a succession of dominant computing problems—hardware, scientific computing, systems, GUI/application complexity, Internet, cloud/data, and AI—with languages becoming dominant when their abstractions and ecosystems fit the problem of the era.**
 
 I think this is a **much better framework than simply memorizing when each language was invented**. It also explains *why* languages rise and fall—which is ultimately much more interesting.
+
+---
+
+last my classification
+|Approx. period|Era|Dominant languages/ecosystems| 
+|---|---|---|
+|1945-1955|hardware|machine code, assembly|
+|1955-1970|mainframe|fortran, cobol|
+|1970-1985|unix|c|
+|1985-1995|gui programming|c++| 
+|1995-2010|web programming|java, javascript|
+|2010-2020|cloud|JS/TS|
+|2020-future|ai|python|
