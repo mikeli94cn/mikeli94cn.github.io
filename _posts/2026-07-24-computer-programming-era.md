@@ -8,8 +8,8 @@ years - main language - technical main breakthrough
 1970-1985, c, operating system
 1985-1995, c++, gui programming
 1995-2010, javascript, web programming
-2010-2020, typescript, mobile web programming
-2020-future, python, ai programming
+2010-2025, typescript, mobile web programming
+2025-future, python, ai programming
 ```
 do you agree with me? or do you have better classification?
 
