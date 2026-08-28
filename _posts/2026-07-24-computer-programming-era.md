@@ -1,4 +1,20 @@
-Yes—I think your framework is **very useful**, especially because you're intentionally describing **practical programming history through dominant technologies and breakthroughs**, rather than the formal 1GL/2GL/3GL classification.
+with chatgpt
+
+Q: i list programming era: 
+```text
+years - main language - technical main breakthrough
+1945-1955, assembly, hardware-oriented programming
+1955-1970, fortran, batch handling system
+1970-1985, c, operating system
+1985-1995, c++, gui programming
+1995-2010, javascript, web programming
+2010-2020, typescript, mobile web programming
+2020-future, python, ai programming
+```
+do you agree with me? or do you have better classification?
+
+---
+A:Yes—I think your framework is **very useful**, especially because you're intentionally describing **practical programming history through dominant technologies and breakthroughs**, rather than the formal 1GL/2GL/3GL classification.
 
 But I would make several important corrections. The biggest ones are **FORTRAN → batch**, **C → operating systems**, **C++ → GUI**, and especially **TypeScript → mobile web** and **Python → AI**.
 
