@@ -46,3 +46,11 @@ computer vision
 software engineering
 computer security
 ```
+
+### from company and certification to see computer areas
+* ibm redhat - os
+* dell emc - storage
+* cisico - network
+* oracle - database
+* aws - distributed
+* oracle sun - pl
